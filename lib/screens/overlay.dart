@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 
 /// Flutter code sample for [Overlay].
-
-void main() => runApp(const OverlayApp());
-
-class OverlayApp extends StatelessWidget {
-  const OverlayApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: OverlayExample(),
-    );
-  }
-}
-
 class OverlayExample extends StatefulWidget {
   const OverlayExample({super.key});
 

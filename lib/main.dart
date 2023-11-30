@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_examples/overlay_portal.dart';
+import 'package:flutter_widget_examples/screens/card_expansion.dart';
+import 'package:flutter_widget_examples/screens/overlay_portal.dart';
+import 'package:flutter_widget_examples/screens.dart';
 
 void main() {
   runApp(const FlutterWidgets());
@@ -17,10 +19,14 @@ class _FlutterWidgetsState extends State<FlutterWidgets> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Playground - Flutter')),
-        body: const Center(child: OverlayPortalExampleApp()),
+      theme: ThemeData.dark().copyWith(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 147, 229, 250),
+          brightness: Brightness.dark,
+        ),
       ),
+      home: Screens(),
     );
   }
 }
