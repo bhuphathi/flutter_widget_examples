@@ -18,9 +18,6 @@ class _CardExpansionDemoState extends State<CardExpansionDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Card Expansion Demo'),
-      ),
       body: Center(
         child: GestureDetector(
           onTap: toggleCard,

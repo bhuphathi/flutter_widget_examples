@@ -15,10 +15,6 @@ class _OverlayPortalDemoState extends State<OverlayPortalDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OverlayPortal Example'),
-        automaticallyImplyLeading: true,
-      ),
       body: Center(
           child: TextButton(
         onPressed: _tooltipController.toggle,

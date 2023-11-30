@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_examples/screens/overlay.dart';
 import 'package:flutter_widget_examples/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/screens/overlay_portal.dart';
+import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
+import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
 
 class Screens extends StatefulWidget {
   const Screens({Key? key}) : super(key: key);
@@ -35,6 +37,8 @@ class _ScreensState extends State<Screens> {
                 widgetScreen(context, const CardExpansionDemo()),
                 widgetScreen(context, const OverlayPortalDemo()),
                 widgetScreen(context, const OverlayExample()),
+                widgetScreen(context, const StaggeredMasonaryGrid()),
+                widgetScreen(context, const StaggeredGridTileCount()),
               ])),
         ));
   }
@@ -44,7 +48,11 @@ class _ScreensState extends State<Screens> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
-          return screen;
+          return Scaffold(
+              appBar: AppBar(
+                title: Text(screen.toString()),
+              ),
+              body: screen);
         }),
       ),
       child: Card(

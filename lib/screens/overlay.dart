@@ -133,9 +133,6 @@ class _OverlayExampleState extends State<OverlayExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Overlay Sample'),
-      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
         destinations: const <NavigationDestination>[
