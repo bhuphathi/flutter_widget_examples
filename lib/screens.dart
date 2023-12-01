@@ -7,14 +7,14 @@ import 'package:flutter_widget_examples/screens/overlay_portal.dart';
 import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
 import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
 
-class Screens extends StatefulWidget {
-  const Screens({Key? key}) : super(key: key);
+class ScreensDemo extends StatefulWidget {
+  const ScreensDemo({Key? key}) : super(key: key);
 
   @override
-  State createState() => _ScreensState();
+  State createState() => _ScreensDemoState();
 }
 
-class _ScreensState extends State<Screens> {
+class _ScreensDemoState extends State<ScreensDemo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
