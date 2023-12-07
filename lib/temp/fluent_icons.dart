@@ -2,7 +2,7 @@ import 'package:flutter_widget_examples/core/utils/responsove.dart';
 import 'package:flutter_widget_examples/temp/searchbar.dart';
 import 'package:flutter/material.dart';
 
-import 'sample_icons.dart';
+import 'fluent_icons_data.dart';
 
 class FluentUIShowcaseWidget extends StatefulWidget {
   const FluentUIShowcaseWidget({super.key});
