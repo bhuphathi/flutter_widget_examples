@@ -1,3 +1,4 @@
+import 'package:flutter_widget_examples/core/utils/responsove.dart';
 import 'package:flutter_widget_examples/temp/searchbar.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,25 @@ class FluentUIShowcaseWidgetState extends State<FluentUIShowcaseWidget> {
             child: GridView.builder(
               itemCount: filteredIcons.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: _isListMode ? 1 : 4,
+                  crossAxisCount: _isListMode
+                      ? responsive(
+                          context,
+                          smallScreen: 1,
+                          mobilePortrait: 2,
+                          mobileLandscape: 3,
+                          tabletLandscape: 4,
+                          desktop: 4,
+                          desktopLarge: 6,
+                        )
+                      : responsive(
+                          context,
+                          smallScreen: 2,
+                          mobilePortrait: 4,
+                          mobileLandscape: 8,
+                          tabletLandscape: 10,
+                          desktop: 12,
+                          desktopLarge: 14,
+                        ),
                   childAspectRatio: _isListMode ? (MediaQuery.of(context).size.height * 0.010) : 1),
               itemBuilder: (context, index) {
                 final icon = filteredIcons[index];
