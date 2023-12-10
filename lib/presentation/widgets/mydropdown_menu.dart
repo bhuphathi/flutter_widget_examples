@@ -1,5 +1,6 @@
 import 'package:flutter_widget_examples/core/utils/check_platform.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_examples/core/utils/get_widget_size.dart';
 
 const _filename = "mydropdown_menu.dart";
 
@@ -64,8 +65,7 @@ class _MyDropdownMenuState<T> extends State<MyDropdownMenu<T>> with WidgetsBindi
   }
 
   void setDropDownSize() {
-    RenderBox? siblingRenderBox = widget.siblingKey?.currentContext?.findRenderObject() as RenderBox?;
-    Size? siblingSize = siblingRenderBox?.size;
+    Size? siblingSize = getSizeOfWidget(widget.siblingKey);    
     if (siblingSize != null) {
       textFieldHeight = (widget.errorText != null ? 15 : 0) +
           (widget.height ?? siblingSize.height - (CheckPlatform().isMobile ? 15 : 23));
