@@ -1,20 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_examples/screens/overlay.dart';
-import 'package:flutter_widget_examples/screens/card_expansion.dart';
-import 'package:flutter_widget_examples/screens/overlay_portal.dart';
-import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
-import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_widget_examples/controller/screen_controller.dart';
+import 'package:flutter_widget_examples/core/utils/string_exension.dart';
 
-class ScreensDemo extends StatefulWidget {
-  const ScreensDemo({Key? key}) : super(key: key);
+class ScreensDemo extends ConsumerStatefulWidget {
+  const ScreensDemo({super.key});
 
   @override
-  State createState() => _ScreensDemoState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _ScreensDemoState();
 }
 
-class _ScreensDemoState extends State<ScreensDemo> {
+class _ScreensDemoState extends ConsumerState<ScreensDemo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,30 +32,26 @@ class _ScreensDemoState extends State<ScreensDemo> {
                     mainAxisSpacing: 4,
                   ),
                   children: [
-                widgetScreen(context, const CardExpansionDemo()),
-                widgetScreen(context, const OverlayPortalDemo()),
-                widgetScreen(context, const OverlayExample()),
-                widgetScreen(context, const StaggeredMasonaryGrid()),
-                widgetScreen(context, const StaggeredGridTileCount()),
+                for (var screen in Screens.values) widgetScreen(context, screen),
               ])),
         ));
   }
 
-  InkWell widgetScreen(BuildContext context, Widget screen) {
+  InkWell widgetScreen(BuildContext context, Screens screen) {
     return InkWell(
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
           return Scaffold(
               appBar: AppBar(
-                title: Text(screen.toString()),
+                title: Text(screen.name.toCapitalize()),
               ),
-              body: screen);
+              body: ScreenController.getScreen(screen));
         }),
       ),
       child: Card(
-        color: Color(Random().nextInt(0xffffffff)),
-        child: Center(child: Text(screen.toString())),
+        color: Color(Random().nextInt(0xCB66BEAF)),
+        child: Center(child: Text(screen.name.toCapitalize())),
       ),
     );
   }
