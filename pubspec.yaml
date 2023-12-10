@@ -47,6 +47,8 @@ dependencies:
   google_fonts: ^6.1.0
   keyboard_dismisser: ^3.0.0
   encrypt: ^5.0.3
+  file_picker: ^6.1.1
+  excel: ^4.0.0
 
 dev_dependencies:
   flutter_test:
