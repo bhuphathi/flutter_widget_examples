@@ -66,58 +66,9 @@ class ScreenController {
   Screens get screenName => _screenName;
 
   void _switchScreen() {
-    switch (_screenName) {
-      case Screens.fluentUIShowcaseWidgetDemo:
-        _currentScreen = const FluentUIShowcaseWidget();
-        break;
-      case Screens.fontAwesomeGalleryDemo:
-        _currentScreen = const FontAwesomeGallery();
-        break;
-      case Screens.gradientBgDemo:
-        _currentScreen = const GradientBg();
-        break;
-      case Screens.home:
-        _currentScreen = const Home();
-        break;
-      case Screens.lifeCycleDemo:
-        _currentScreen = const Lifecycle();
-        break;
-      case Screens.radixTestScreenDemo:
-        _currentScreen = const RadixTestScreen();
-        break;
-      case Screens.readWriteDemo:
-        // assert(_args?[0] != null, "CounterStorage() class need as args[0] for ReadWriteDemo screen");
-        _currentScreen = ReadWriteDemo(storage: CounterStorage());
-        break;
-      case Screens.sidePanelExample:
-        _currentScreen = const SidePanelExample();
-        break;
-      case Screens.testScreenDemo:
-        _currentScreen = const TestScreen();
-        break;
-      case Screens.screens:
-        _currentScreen = const ScreensDemo();
-        break;
-      case Screens.excelFile:
-        _currentScreen = const ExcelFileDemo();
-        break;
-      case Screens.cardExpansionDemo:
-        _currentScreen = const CardExpansionDemo();
-        break;
-      case Screens.overlayPortalDemo:
-        _currentScreen = const OverlayPortalDemo();
-        break;
-      case Screens.staggeredMasonaryGrid:
-        _currentScreen = const StaggeredMasonaryGrid();
-        break;
-      case Screens.staggeredGridTileCount:
-        _currentScreen = const StaggeredGridTileCount();
-        break;
-      default:
-        _currentScreen = const Home();
-        break;
-    }
+    _currentScreen = getScreen(_screenName);
   }
+
   static Widget getScreen(Screens screen) {
     switch (screen) {
       case Screens.fluentUIShowcaseWidgetDemo:
