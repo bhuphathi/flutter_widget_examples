@@ -23,7 +23,7 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
     });
   }
 
-  void searchTerm(String value) {
+  void setSearchKeyword(String value) {
     setState(() {
       _searchTerm = value;
     });
@@ -42,9 +42,9 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
           children: [
             SearchBarWidget(
                 title: 'Search FontAwesome icons',
-                searchText: searchText,
-                listMode: listMode,
-                searchTerm: searchTerm),
+                searchTextController: searchText,
+                setListMode: listMode,
+                setSearchKeyword: setSearchKeyword),
             Expanded(
               child: GridView.builder(
                 itemCount: filteredIcons.length,

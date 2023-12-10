@@ -10,14 +10,14 @@ class SearchBarWidget extends ConsumerStatefulWidget {
   const SearchBarWidget({
     super.key,
     required this.title,
-    required this.searchText,
-    required this.listMode,
-    required this.searchTerm,
+    required this.searchTextController,
+    required this.setSearchKeyword,
+    this.setListMode,
   });
   final String title;
-  final void Function(String value) searchTerm;
-  final void Function(bool value) listMode;
-  final TextEditingController searchText;
+  final void Function(String value) setSearchKeyword;
+  final void Function(bool value)? setListMode;
+  final TextEditingController searchTextController;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _SearchBarWidgetState();
@@ -29,61 +29,50 @@ class _SearchBarWidgetState extends ConsumerState<SearchBarWidget> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => widget.listMode(_isListMode));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.setListMode != null ? widget.setListMode!(_isListMode) : "";
+    });
     dPrint(filename: _filename, msg: "initState", tag: "searchbar");
   }
 
   @override
   Widget build(BuildContext context) {
-    dPrint(filename: _filename, msg: "build mounted: $mounted", tag: "searchbar");
-    return Column(
-      children: [_searchBar(context)],
-    );
-  }
-
-  Widget _searchBar(BuildContext context) {
     final theme = ref.watch(radixThemeProvider);
-    dPrint(filename: _filename, msg: "_searchbar mounted: $mounted", tag: "searchbar");
+    dPrint(filename: _filename, msg: "build mounted: $mounted", tag: "searchbar");
+
     return Material(
       elevation: 1.0,
       child: Row(
         children: <Widget>[
           IconButton(
-            icon: const Icon(
-              FluentIcons.search_24_regular,
-              color: Colors.grey,
-            ),
-            onPressed: () => widget.searchTerm(""),
+            icon: Icon(FluentIcons.search_24_regular, color: theme.secondary),
+            onPressed: () => widget.setSearchKeyword(""),
           ),
           Expanded(
             child: TextField(
-              controller: widget.searchText,
-              onChanged: (text) => widget.searchTerm(text),
+              controller: widget.searchTextController,
+              onChanged: (text) => widget.setSearchKeyword(text),
               style: TextStyle(fontSize: 18.0, color: theme.secondary.step12),
               decoration: InputDecoration(border: InputBorder.none, hintText: widget.title),
             ),
           ),
           IconButton(
-            icon: const Icon(
-              FluentIcons.dismiss_24_filled,
-              color: Colors.grey,
-            ),
+            icon: Icon(FluentIcons.dismiss_24_filled, color: theme.secondary),
             onPressed: () {
               FocusManager.instance.primaryFocus?.unfocus();
-              widget.searchTerm("");
-              widget.searchText.text = "";
+              widget.setSearchKeyword("");
+              widget.searchTextController.text = "";
             },
           ),
-          IconButton(
-            icon: Icon(
-              _isListMode ? FluentIcons.grid_24_regular : FluentIcons.list_24_regular,
-              color: Colors.grey,
+          if (widget.setListMode != null)
+            IconButton(
+              icon: Icon(_isListMode ? FluentIcons.grid_24_regular : FluentIcons.list_24_regular,
+                  color: theme.secondary),
+              onPressed: () {
+                setState(() => _isListMode = !_isListMode);
+                widget.setListMode!(_isListMode);
+              },
             ),
-            onPressed: () {
-              setState(() => _isListMode = !_isListMode);
-              widget.listMode(_isListMode);
-            },
-          ),
         ],
       ),
     );

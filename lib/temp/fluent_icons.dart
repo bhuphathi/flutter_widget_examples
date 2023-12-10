@@ -21,7 +21,7 @@ class FluentUIShowcaseWidgetState extends State<FluentUIShowcaseWidget> {
     });
   }
 
-  void searchTerm(String value) {
+  void setSearchKeyword(String value) {
     setState(() {
       _searchTerm = value;
     });
@@ -41,9 +41,9 @@ class FluentUIShowcaseWidgetState extends State<FluentUIShowcaseWidget> {
           // _searchBar(context),
           SearchBarWidget(
               title: 'Search Fluent icons',
-              searchText: searchText,
-              listMode: listMode,
-              searchTerm: searchTerm),
+              searchTextController: searchText,
+              setListMode: listMode,
+              setSearchKeyword: setSearchKeyword),
           Expanded(
             child: GridView.builder(
               itemCount: filteredIcons.length,
