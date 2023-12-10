@@ -1,5 +1,5 @@
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
-import 'package:flutter_widget_examples/core/utils/responsove.dart';
+import 'package:flutter_widget_examples/core/utils/responsive.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/settings_panel_content.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +19,11 @@ Future<dynamic> settingsPanel(BuildContext context, WidgetRef ref) {
     context: context,
     pageBuilder: (context, animation1, animation2) {
       final width = MediaQuery.of(context).size.width;
-      double panelWidth = responsive(context,
-          mobileLandscape: 350, mobilePortrait: width * 0.80, smallScreen: width * 0.80);
+      double panelWidth = responsive(
+          context: context,
+          mobileLandscape: 350,
+          mobilePortrait: width * 0.80,
+          smallScreen: width * 0.80);
       //need consumer builder to rebuild while state change
       return Consumer(builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final theme = ref.watch(radixThemeProvider);

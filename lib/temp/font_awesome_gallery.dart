@@ -1,4 +1,4 @@
-import 'package:flutter_widget_examples/core/utils/responsove.dart';
+import 'package:flutter_widget_examples/core/utils/responsive.dart';
 import 'package:flutter_widget_examples/temp/searchbar.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +51,7 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: _isListMode
                         ? responsive(
-                            context,
+                            context: context,
                             smallScreen: 1,
                             mobilePortrait: 2,
                             mobileLandscape: 3,
@@ -60,7 +60,7 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
                             desktopLarge: 6,
                           )
                         : responsive(
-                            context,
+                            context: context,
                             smallScreen: 2,
                             mobilePortrait: 4,
                             mobileLandscape: 8,

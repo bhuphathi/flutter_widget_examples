@@ -61,8 +61,9 @@ class Responsive extends ConsumerWidget {
 /// mobileLandscape: > 500\
 /// mobilePortrait: > 340\
 /// smallScreen: below 340
-T responsive<T>(
-  BuildContext context, {
+T responsive<T>({
+  required BuildContext context,
+  BoxConstraints? constraints,
   T? desktopLarge,
   T? desktop,
   T? tabletLandscape,
@@ -71,17 +72,19 @@ T responsive<T>(
   required T smallScreen,
 }) {
   final Size size = MediaQuery.of(context).size;
-  dPrint(filename: _filename, msg: size.width, tag: "window-width");
+  double width = constraints != null ? constraints.maxWidth : size.width;
 
-  if (size.width >= 1600 && desktopLarge != null) {
+  dPrint(filename: _filename, msg: width, tag: "window-width");
+
+  if (width >= 1600 && desktopLarge != null) {
     return desktopLarge;
-  } else if (size.width >= 1100 && desktop != null) {
+  } else if (width >= 1100 && desktop != null) {
     return desktop;
-  } else if (size.width >= 860 && tabletLandscape != null) {
+  } else if (width >= 860 && tabletLandscape != null) {
     return tabletLandscape;
-  } else if (size.width > 500 && mobileLandscape != null) {
+  } else if (width > 500 && mobileLandscape != null) {
     return mobileLandscape;
-  } else if (size.width > 340 && mobilePortrait != null) {
+  } else if (width > 340 && mobilePortrait != null) {
     return mobilePortrait;
   } else {
     return smallScreen;

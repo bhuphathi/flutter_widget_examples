@@ -1,5 +1,5 @@
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
-import 'package:flutter_widget_examples/core/utils/responsove.dart';
+import 'package:flutter_widget_examples/core/utils/responsive.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';
 import 'package:flutter_widget_examples/presentation/widgets/color_swatch.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,8 @@ class RadixTestScreen extends ConsumerWidget {
         Expanded(
           child: GridView(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: responsive(context,
+                crossAxisCount: responsive(
+                    context: context,
                     desktopLarge: 8,
                     desktop: 6,
                     tabletLandscape: 4,
