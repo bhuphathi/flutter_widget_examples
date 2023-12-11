@@ -1,3 +1,5 @@
+import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
+import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/screens/excel_file_view.dart';
@@ -18,22 +20,24 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum Screens {
+  screens,
+  home,
   fluentUIShowcaseWidgetDemo,
   fontAwesomeGalleryDemo,
   gradientBgDemo,
-  home,
   lifeCycleDemo,
   radixTestScreenDemo,
   readWriteDemo,
   sidePanelExample,
   testScreenDemo,
-  screens,
-  excelFile,
   cardExpansionDemo,
   overlayPortalDemo,
   staggeredMasonaryGrid,
   staggeredGridTileCount,
   customDatatable,
+  excelFile,
+  excelDatatableView,
+  excelPaginatedDatatableView,
 }
 
 /// Home() screen is default
@@ -106,6 +110,10 @@ class ScreenController {
         return const StaggeredGridTileCount();
       case Screens.customDatatable:
         return const CustomDataTablePage();
+      case Screens.excelDatatableView:
+        return const ExcelDatatableView();
+      case Screens.excelPaginatedDatatableView:
+        return const ExcelPaginatedDatatableView();
       default:
         return const Home();
     }
