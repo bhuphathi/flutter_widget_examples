@@ -4,6 +4,7 @@ import 'package:flutter_widget_examples/screens/excel_file_view.dart';
 import 'package:flutter_widget_examples/screens/overlay_portal.dart';
 import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
 import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
+import 'package:flutter_widget_examples/screens/widget/custom_datatable.dart';
 import 'package:flutter_widget_examples/temp/fluent_icons.dart';
 import 'package:flutter_widget_examples/temp/font_awesome_gallery.dart';
 import 'package:flutter_widget_examples/temp/gradient_bg_screen.dart';
@@ -32,6 +33,7 @@ enum Screens {
   overlayPortalDemo,
   staggeredMasonaryGrid,
   staggeredGridTileCount,
+  customDatatable,
 }
 
 /// Home() screen is default
@@ -102,6 +104,8 @@ class ScreenController {
         return const StaggeredMasonaryGrid();
       case Screens.staggeredGridTileCount:
         return const StaggeredGridTileCount();
+      case Screens.customDatatable:
+        return const CustomDataTablePage();
       default:
         return const Home();
     }
