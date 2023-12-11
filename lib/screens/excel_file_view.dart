@@ -10,7 +10,7 @@ import 'package:flutter_widget_examples/core/utils/get_widget_size.dart';
 import 'package:flutter_widget_examples/core/utils/responsive.dart';
 import 'package:flutter_widget_examples/temp/searchbar.dart';
 
-const _filename = "broiler_parties_list.dart";
+const _filename = "excel_file_view.dart";
 
 class ExcelFileDemo extends ConsumerStatefulWidget {
   const ExcelFileDemo({super.key});
@@ -212,13 +212,4 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
     );
   }
 
-  ListTile listTile(Data? broilerParty, bool isListMode) {
-    return ListTile(
-      visualDensity: VisualDensity.compact,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 6),
-      title: Text('${broilerParty?.value?.toString()}'),
-      subtitle: isListMode ? null : Text("id: ${broilerParty?.cellIndex}"),
-      isThreeLine: !isListMode,
-    );
-  }
 }
