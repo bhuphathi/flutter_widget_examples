@@ -72,9 +72,19 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.testScreenDemo),
+              onPressed: () =>
+                  screenControllerNotifier.switchScreen(screen: Screens.customMaterialTheme),
               icon: const Icon(
                 FluentIcons.color_background_20_regular,
+                size: 18,
+              ),
+              tooltip: "Custom Material Theme",
+            ),
+            IconButton(
+              splashRadius: 24,
+              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.materialThemeDemo),
+              icon: const Icon(
+                FluentIcons.color_background_20_filled,
                 size: 18,
               ),
               tooltip: "Material Theme",

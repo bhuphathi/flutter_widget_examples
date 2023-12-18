@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 const _filename = "test_screen.dart";
 
-class TestScreen extends ConsumerWidget {
-  const TestScreen({super.key});
+class CustomMaterialTheme extends ConsumerWidget {
+  const CustomMaterialTheme({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

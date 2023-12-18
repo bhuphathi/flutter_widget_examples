@@ -44,7 +44,7 @@ class _FlutterWidgetsState extends ConsumerState<FlutterWidgets> {
         brightness: brightness,
         textTheme: GoogleFonts.ubuntuTextTheme(TextTheme(bodyMedium: TextStyle(color: theme.black))),
         colorScheme: ColorScheme.fromSeed(seedColor: theme.primary, brightness: brightness),
-        canvasColor: theme.secondary.step2,
+        // canvasColor: theme.secondary.step2,
       ),
       home: const MainScreen(),
     );

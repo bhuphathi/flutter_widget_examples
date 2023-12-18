@@ -3,6 +3,7 @@ import 'package:flutter_widget_examples/presentation/screens/excel_paginated_dat
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/screens/excel_file_view.dart';
+import 'package:flutter_widget_examples/screens/material_theme.dart';
 import 'package:flutter_widget_examples/screens/overlay_portal.dart';
 import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
 import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
@@ -29,7 +30,8 @@ enum Screens {
   radixTestScreenDemo,
   readWriteDemo,
   sidePanelExample,
-  testScreenDemo,
+  customMaterialTheme,
+  materialThemeDemo,
   cardExpansionDemo,
   overlayPortalDemo,
   staggeredMasonaryGrid,
@@ -94,8 +96,10 @@ class ScreenController {
         return ReadWriteDemo(storage: CounterStorage());
       case Screens.sidePanelExample:
         return const SidePanelExample();
-      case Screens.testScreenDemo:
-        return const TestScreen();
+      case Screens.customMaterialTheme:
+        return const CustomMaterialTheme();
+      case Screens.materialThemeDemo:
+        return const MaterialThemeDemo();
       case Screens.screens:
         return const ScreensDemo();
       case Screens.excelFile:

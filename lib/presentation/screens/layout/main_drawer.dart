@@ -98,7 +98,7 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
                   collapsedIconColor: theme.primary.step11,
                   children: <Widget>[
                     ListTile(
-                      selected: screenController.screenName == Screens.testScreenDemo,
+                      selected: screenController.screenName == Screens.customMaterialTheme,
                       hoverColor: theme.base.step4,
                       selectedTileColor: theme.base.step5,
                       leading: Icon(Icons.person_add, size: 20, color: theme.base.step12),
@@ -127,18 +127,33 @@ class _MainDrawerState extends ConsumerState<MainDrawer> {
                 collapsedIconColor: theme.primary.step11,
                 children: <Widget>[
                   ListTile(
-                    selected: screenController.screenName == Screens.testScreenDemo,
+                    selected: screenController.screenName == Screens.materialThemeDemo,
                     hoverColor: theme.base.step4,
                     selectedTileColor: theme.base.step5,
                     leading: Icon(Icons.line_weight, size: 20, color: theme.base.step12),
-                    title: Text("Test Screen - ThemeData",
+                    title: Text("MaterialTheme Demo",
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
                             .copyWith(color: theme.base.step12, fontSize: 18)),
                     onTap: () {
                       Navigator.pop(context);
-                      screenControllerNotifier.switchScreen(screen: Screens.testScreenDemo);
+                      screenControllerNotifier.switchScreen(screen: Screens.materialThemeDemo);
+                    },
+                  ),
+                  ListTile(
+                    selected: screenController.screenName == Screens.customMaterialTheme,
+                    hoverColor: theme.base.step4,
+                    selectedTileColor: theme.base.step5,
+                    leading: Icon(Icons.line_weight, size: 20, color: theme.base.step12),
+                    title: Text("Custom MaterialTheme",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: theme.base.step12, fontSize: 18)),
+                    onTap: () {
+                      Navigator.pop(context);
+                      screenControllerNotifier.switchScreen(screen: Screens.customMaterialTheme);
                     },
                   ),
                   ListTile(
