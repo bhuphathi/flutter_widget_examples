@@ -1,10 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_widget_examples/controller/theme_controller.dart';
 import 'package:flutter_widget_examples/core/providers/brightness_provider.dart';
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
-import 'package:flutter_widget_examples/core/utils/check_platform.dart';
-import 'package:flutter_widget_examples/presentation/screens/body_content.dart';
 import 'package:flutter_widget_examples/presentation/screens/main_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +43,8 @@ class _FlutterWidgetsState extends ConsumerState<FlutterWidgets> {
       theme: ThemeData(
         brightness: brightness,
         textTheme: GoogleFonts.ubuntuTextTheme(TextTheme(bodyMedium: TextStyle(color: theme.black))),
-        colorScheme: ColorScheme.fromSeed(seedColor: theme.primary, brightness: brightness),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color(Random().nextInt(0xFFEEBF24)), brightness: brightness),
         // canvasColor: theme.secondary.step2,
       ),
       home: const MainScreen(),

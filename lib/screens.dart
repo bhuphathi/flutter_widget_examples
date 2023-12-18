@@ -50,7 +50,7 @@ class _ScreensDemoState extends ConsumerState<ScreensDemo> {
         }),
       ),
       child: Card(
-        color: Color(Random().nextInt(0xCB66BEAF)),
+        color: Color(Random().nextInt(0xFFEEBF24)),
         child: Center(child: Text(screen.name.toCapitalize())),
       ),
     );
