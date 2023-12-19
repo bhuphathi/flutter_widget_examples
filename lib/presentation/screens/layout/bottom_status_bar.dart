@@ -2,6 +2,8 @@ import 'package:flutter_widget_examples/controller/role_controller.dart';
 import 'package:flutter_widget_examples/controller/screen_controller.dart';
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/app_bar.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/main_drawer.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/settings_panel.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +46,13 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
           children: [
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.home),
+              onPressed: () {
+                if (Navigator.of(context).canPop()) {
+                  pushScreen(context, Screens.home);
+                } else {
+                  screenControllerNotifier.switchScreen(screen: Screens.home);
+                }
+              },
               icon: const Icon(
                 Icons.home,
                 size: 20,
@@ -53,7 +61,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.lifeCycleDemo),
+              onPressed: () => pushScreen(context, Screens.lifeCycleDemo),
               icon: const Icon(
                 FontAwesomeIcons.link,
                 size: 18,
@@ -62,8 +70,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () =>
-                  screenControllerNotifier.switchScreen(screen: Screens.radixTestScreenDemo),
+              onPressed: () => pushScreen(context, Screens.radixTestScreenDemo),
               icon: const Icon(
                 FluentIcons.color_24_regular,
                 size: 18,
@@ -72,8 +79,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () =>
-                  screenControllerNotifier.switchScreen(screen: Screens.customMaterialTheme),
+              onPressed: () => pushScreen(context, Screens.customMaterialTheme),
               icon: const Icon(
                 FluentIcons.color_background_20_regular,
                 size: 18,
@@ -82,7 +88,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.materialThemeDemo),
+              onPressed: () => pushScreen(context, Screens.materialThemeDemo),
               icon: const Icon(
                 FluentIcons.color_background_20_filled,
                 size: 18,
@@ -90,14 +96,12 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
               tooltip: "Material Theme",
             ),
             TextButton(
-              onPressed: () =>
-                  screenControllerNotifier.switchScreen(screen: Screens.fontAwesomeGalleryDemo),
+              onPressed: () => pushScreen(context, Screens.fontAwesomeGalleryDemo),
               child: const Tooltip(message: "Font Awesome", child: Text("FA")),
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () =>
-                  screenControllerNotifier.switchScreen(screen: Screens.fluentUIShowcaseWidgetDemo),
+              onPressed: () => pushScreen(context, Screens.fluentUIShowcaseWidgetDemo),
               icon: const Icon(
                 FluentIcons.fluent_24_regular,
                 size: 18,
@@ -106,7 +110,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.sidePanelExample),
+              onPressed: () => pushScreen(context, Screens.sidePanelExample),
               icon: const Icon(
                 Icons.file_copy,
                 size: 18,
@@ -115,7 +119,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.readWriteDemo),
+              onPressed: () => pushScreen(context, Screens.readWriteDemo),
               icon: const Icon(
                 Icons.enhanced_encryption_outlined,
                 size: 18,
@@ -124,7 +128,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => screenControllerNotifier.switchScreen(screen: Screens.screens),
+              onPressed: () => pushScreen(context, Screens.screens),
               icon: const Icon(
                 Icons.screen_lock_landscape,
                 size: 18,
@@ -145,6 +149,19 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
           ],
         ),
       ),
+    );
+  }
+
+  void pushScreen(BuildContext context, Screens screen) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return Scaffold(
+            appBar: const AppBarWidget(),
+            drawer: const MainDrawer(),
+            bottomNavigationBar: const BottomStatusBar(),
+            body: ScreenController.getScreen(screen));
+      }),
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter_widget_examples/core/providers/error_provider.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/bottom_status_bar.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/main_drawer.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/settings_panel.dart';
 import 'package:flutter_widget_examples/presentation/widgets/error_dialog.dart';
 import 'package:flutter_widget_examples/controller/theme_controller.dart';
@@ -53,8 +55,13 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
             ),
           IconButton(
             icon: const Icon(Icons.home),
-            onPressed: () =>
-                ref.read(screenControllerProvider.notifier).switchScreen(screen: Screens.home),
+            onPressed: () {
+              if (Navigator.of(context).canPop()) {
+                pushScreen(context, Screens.home);
+              } else {
+                ref.read(screenControllerProvider.notifier).switchScreen(screen: Screens.home);
+              }
+            },
           ),
           const Expanded(
             child: Center(child: Text('Flutter Widgets Demo')),
@@ -73,7 +80,7 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
         children: [
           if (Navigator.of(context).canPop())
             IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 // Open the drawer
                 Navigator.of(context).pop();
@@ -81,7 +88,7 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
             ),
           if (!Navigator.of(context).canPop())
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () {
                 // Open the drawer
                 Scaffold.of(context).openDrawer();
@@ -89,7 +96,6 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
             ),
         ],
       ),
-
       automaticallyImplyLeading: true,
       centerTitle: true,
       actions: <Widget>[
@@ -122,6 +128,19 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
           ],
         )
       ],
+    );
+  }
+
+  void pushScreen(BuildContext context, Screens screen) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return Scaffold(
+            appBar: const AppBarWidget(),
+            drawer: const MainDrawer(),
+            bottomNavigationBar: const BottomStatusBar(),
+            body: ScreenController.getScreen(screen));
+      }),
     );
   }
 }
