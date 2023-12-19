@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_widget_examples/controller/screen_controller.dart';
 import 'package:flutter_widget_examples/core/utils/string_exension.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/app_bar.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/main_drawer.dart';
 
 class ScreensDemo extends ConsumerStatefulWidget {
   const ScreensDemo({super.key});
@@ -43,9 +45,8 @@ class _ScreensDemoState extends ConsumerState<ScreensDemo> {
         context,
         MaterialPageRoute(builder: (context) {
           return Scaffold(
-              appBar: AppBar(
-                title: Text(screen.name.toCapitalize()),
-              ),
+              appBar: const AppBarWidget(),
+              drawer: const MainDrawer(),
               body: ScreenController.getScreen(screen));
         }),
       ),

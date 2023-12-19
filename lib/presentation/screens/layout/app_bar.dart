@@ -1,4 +1,5 @@
 import 'package:flutter_widget_examples/core/providers/error_provider.dart';
+import 'package:flutter_widget_examples/presentation/screens/layout/settings_panel.dart';
 import 'package:flutter_widget_examples/presentation/widgets/error_dialog.dart';
 import 'package:flutter_widget_examples/controller/theme_controller.dart';
 import 'package:flutter_widget_examples/core/providers/brightness_provider.dart';
@@ -42,13 +43,14 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          ),
+          if (Navigator.of(context).canPop())
+            IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
           IconButton(
             icon: const Icon(Icons.home),
             onPressed: () =>
@@ -67,11 +69,43 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
           })
         ],
       ),
-      automaticallyImplyLeading: false,
+      leading: Row(
+        children: [
+          if (Navigator.of(context).canPop())
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                // Open the drawer
+                Navigator.of(context).pop();
+              },
+            ),
+          if (!Navigator.of(context).canPop())
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                // Open the drawer
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+        ],
+      ),
+
+      automaticallyImplyLeading: true,
       centerTitle: true,
       actions: <Widget>[
         Row(
           children: <Widget>[
+            IconButton(
+              splashRadius: 24,
+              onPressed: () {
+                settingsPanel(context, ref);
+              },
+              icon: const Icon(
+                Icons.settings,
+                size: 18,
+              ),
+              tooltip: "Settings",
+            ),
             IconButton(
               //   constraints: BoxConstraints.loose(const Size.fromWidth(30)),
               splashRadius: 24,
