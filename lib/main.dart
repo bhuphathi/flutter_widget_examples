@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_widget_examples/controller/theme_controller.dart';
@@ -41,10 +39,11 @@ class _FlutterWidgetsState extends ConsumerState<FlutterWidgets> {
       //   ),
       // ),
       theme: ThemeData(
+        useMaterial3: false,
         brightness: brightness,
         textTheme: GoogleFonts.ubuntuTextTheme(TextTheme(bodyMedium: TextStyle(color: theme.black))),
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color(Random().nextInt(0xFFEEBF24)), brightness: brightness),
+        colorScheme: ColorScheme.fromSeed(seedColor: theme.base, brightness: brightness),
+        // ColorScheme.fromSeed(seedColor: Color(Random().nextInt(0xFFEEBF24)), brightness: brightness),
         // canvasColor: theme.secondary.step2,
       ),
       home: const MainScreen(),
