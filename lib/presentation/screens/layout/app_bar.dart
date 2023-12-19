@@ -82,7 +82,7 @@ class _AppBarWidgetState extends ConsumerState<AppBarWidget> {
             IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                // Open the drawer
+                // close current screen and go back
                 Navigator.of(context).pop();
               },
             ),
