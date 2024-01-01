@@ -1,5 +1,5 @@
 // import 'package:flutter_widget_examples/utils/debug_print.dart';
-import 'package:flutter_widget_examples/core/utils/string_exension.dart';
+import 'package:flutter_widget_examples/core/utils/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:radix_colors/radix_colors.dart';
 

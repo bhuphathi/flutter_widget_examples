@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_widget_examples/controller/screen_controller.dart';
-import 'package:flutter_widget_examples/core/utils/string_exension.dart';
+import 'package:flutter_widget_examples/core/utils/string_extension.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/app_bar.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/bottom_status_bar.dart';
 import 'package:flutter_widget_examples/presentation/screens/layout/main_drawer.dart';

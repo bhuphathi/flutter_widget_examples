@@ -2,7 +2,7 @@ import 'package:flutter_widget_examples/controller/theme_controller.dart';
 import 'package:flutter_widget_examples/core/providers/brightness_provider.dart';
 import 'package:flutter_widget_examples/core/providers/themename_provider.dart';
 import 'package:flutter_widget_examples/core/themes/radix_theme.dart';
-import 'package:flutter_widget_examples/core/utils/string_exension.dart';
+import 'package:flutter_widget_examples/core/utils/string_extension.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
