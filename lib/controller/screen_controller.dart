@@ -5,6 +5,7 @@ import 'package:flutter_widget_examples/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/screens/excel_file_view.dart';
 import 'package:flutter_widget_examples/screens/material_theme.dart';
 import 'package:flutter_widget_examples/screens/overlay_portal.dart';
+import 'package:flutter_widget_examples/screens/physical_keyboard_events.dart';
 import 'package:flutter_widget_examples/screens/staggered_gridtile_count.dart';
 import 'package:flutter_widget_examples/screens/staggered_masonary_grid.dart';
 import 'package:flutter_widget_examples/screens/widget/custom_datatable.dart';
@@ -40,6 +41,7 @@ enum Screens {
   excelFile,
   excelDatatableView,
   excelPaginatedDatatableView,
+  physicalKeyboardEvents,
 }
 
 /// Home() screen is default
@@ -118,6 +120,8 @@ class ScreenController {
         return const ExcelDatatableView();
       case Screens.excelPaginatedDatatableView:
         return const ExcelPaginatedDatatableView();
+      case Screens.physicalKeyboardEvents:
+        return const PhysicalKeyboardEventsExample();
       default:
         return const Home();
     }

@@ -18,26 +18,18 @@ class ScreensDemo extends ConsumerStatefulWidget {
 class _ScreensDemoState extends ConsumerState<ScreensDemo> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Playground - Flutter'),
-          ),
-          body: SingleChildScrollView(
-              child: GridView(
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    // childAspectRatio: 4,
-                    mainAxisExtent: 65,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 4,
-                  ),
-                  children: [
-                for (var screen in Screens.values) widgetScreen(context, screen),
-              ])),
-        ));
+    return GridView(
+        shrinkWrap: true,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          // childAspectRatio: 4,
+          mainAxisExtent: 65,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 4,
+        ),
+        children: [
+          for (var screen in Screens.values) widgetScreen(context, screen),
+        ]);
   }
 
   InkWell widgetScreen(BuildContext context, Screens screen) {
@@ -54,7 +46,7 @@ class _ScreensDemoState extends ConsumerState<ScreensDemo> {
       ),
       child: Card(
         color: Color(Random().nextInt(0xFFEEBF24)),
-        child: Center(child: Text(screen.name.toCapitalize())),
+        child: Center(child: Text(screen.name.splitCamelCase())),
       ),
     );
   }
