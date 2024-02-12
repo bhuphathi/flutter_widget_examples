@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_widget_examples/screens/widget/tile.dart';
+import 'package:flutter_widget_examples/presentation/widgets/tile.dart';
 
 class AlignedGridViewExample extends StatelessWidget {
   const AlignedGridViewExample({Key? key}) : super(key: key);
