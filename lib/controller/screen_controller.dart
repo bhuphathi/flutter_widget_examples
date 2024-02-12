@@ -1,5 +1,7 @@
 import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
+import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
+import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/screens/excel_file_view.dart';
@@ -42,6 +44,10 @@ enum Screens {
   excelDatatableView,
   excelPaginatedDatatableView,
   physicalKeyboardEvents,
+  pageViewExampleApp,
+  tabBarApp,
+  tabBarApp2,
+  tabBarApp3,
 }
 
 /// Home() screen is default
@@ -122,6 +128,14 @@ class ScreenController {
         return const ExcelPaginatedDatatableView();
       case Screens.physicalKeyboardEvents:
         return const PhysicalKeyboardEventsExample();
+      case Screens.pageViewExampleApp:
+        return const PageViewExampleApp();
+      case Screens.tabBarApp:
+        return const TabBarExample();
+      case Screens.tabBarApp2:
+        return const TabBarExample2();
+      case Screens.tabBarApp3:
+        return const TabBarExample3();
       default:
         return const Home();
     }
