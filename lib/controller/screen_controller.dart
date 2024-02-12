@@ -49,6 +49,7 @@ enum Screens {
   tabBarApp,
   tabBarApp2,
   tabBarApp3,
+  tabBarApp4,
   pageViewAnimatedCards,
   pageViewAnimatedCards2,
 }
@@ -143,6 +144,8 @@ class ScreenController {
         return PageViewAnimatedCards();
       case Screens.pageViewAnimatedCards2:
         return PageViewAnimatedCards2();
+      case Screens.tabBarApp4:
+        return TabBarExample4();
       default:
         return const Home();
     }

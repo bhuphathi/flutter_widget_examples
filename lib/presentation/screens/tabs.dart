@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Flutter code sample for [TabBar].
 
@@ -200,6 +201,47 @@ class _NestedTabBarState extends State<NestedTabBar> with TickerProviderStateMix
           ),
         ),
       ],
+    );
+  }
+}
+
+class TabBarExample4 extends ConsumerStatefulWidget {
+  const TabBarExample4({super.key});
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _TabBarExample4State();
+}
+
+class _TabBarExample4State extends ConsumerState<TabBarExample4> {
+  final PageController _controller = PageController(viewportFraction: 0.8);
+  List<String> vehicles = ["Add", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      initialIndex: 0,
+      length: vehicles.length,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          primary: false,
+          title: TabBar(
+            isScrollable: true,
+            tabs: <Widget>[
+              ...vehicles.map((e) => Tab(
+                    child: Text(e),
+                  )),
+            ],
+          ),
+        ),
+        body: Center(
+          child: TabBarView(
+            children: <Widget>[
+              ...vehicles.map((e) => Text(e)),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

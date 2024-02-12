@@ -6,10 +6,10 @@ class PageViewAnimatedCards extends ConsumerStatefulWidget {
   const PageViewAnimatedCards({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _PageViewAnimatedCards2State();
+  ConsumerState<ConsumerStatefulWidget> createState() => _PageViewAnimatedCardsState();
 }
 
-class _PageViewAnimatedCarsState extends ConsumerState<PageViewAnimatedCards> {
+class _PageViewAnimatedCardsState extends ConsumerState<PageViewAnimatedCards> {
   final PageController _controller = PageController(viewportFraction: 0.8);
 
   @override
