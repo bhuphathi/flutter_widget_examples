@@ -34,16 +34,19 @@ class _ScreensDemoState extends ConsumerState<ScreensDemo> {
 
   InkWell widgetScreen(BuildContext context, Screens screen) {
     return InkWell(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return Scaffold(
-              appBar: const AppBarWidget(),
-              drawer: const MainDrawer(),
-              bottomNavigationBar: const BottomStatusBar(),
-              body: ScreenController.getScreen(screen));
-        }),
-      ),
+      onTap: () {
+        ref.read(screenControllerProvider.notifier).switchScreen(screen: screen);
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) {
+        //     return Scaffold(
+        //         appBar: const AppBarWidget(),
+        //         drawer: const MainDrawer(),
+        //         bottomNavigationBar: const BottomStatusBar(),
+        //         body: ScreenController.getScreen(screen));
+        //   }),
+        // );
+      },
       child: Card(
         color: Color(Random().nextInt(0xFFEEBF24)),
         child: Center(child: Text(screen.name.splitCamelCase())),
