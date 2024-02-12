@@ -1,6 +1,7 @@
 import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
+import 'package:flutter_widget_examples/presentation/screens/pageview_animated_cards.dart';
 import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/presentation/screens/card_expansion.dart';
@@ -48,6 +49,8 @@ enum Screens {
   tabBarApp,
   tabBarApp2,
   tabBarApp3,
+  pageViewAnimatedCards,
+  pageViewAnimatedCards2,
 }
 
 /// Home() screen is default
@@ -136,6 +139,10 @@ class ScreenController {
         return const TabBarExample2();
       case Screens.tabBarApp3:
         return const TabBarExample3();
+      case Screens.pageViewAnimatedCards:
+        return PageViewAnimatedCards();
+      case Screens.pageViewAnimatedCards2:
+        return PageViewAnimatedCards2();
       default:
         return const Home();
     }
