@@ -150,6 +150,53 @@ class CounterStorage {
     }
   }
 
+  void directoriesPath() async {
+    //getApplicationDocumentsDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/app_flutter'
+    getApplicationDocumentsDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getApplicationDocumentsDirectory: ${value.toString()}");
+    });
+
+    //getApplicationSupportDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/files'
+    getApplicationSupportDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getApplicationSupportDirectory: ${value.toString()}");
+    });
+
+    //getDownloadsDirectory: Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files/downloads'
+    getDownloadsDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getDownloadsDirectory: ${value.toString()}");
+    });
+
+    //getExternalCacheDirectories: [Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/cache']
+    getExternalCacheDirectories().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalCacheDirectories: ${value.toString()}");
+    });
+
+    // getExternalStorageDirectory: Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files'
+    getExternalStorageDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectory: ${value.toString()}");
+    });
+
+    //getExternalStorageDirectories: [Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files']
+    getExternalStorageDirectories().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectories: ${value.toString()}");
+    });
+
+    //getTemporaryDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/cache'
+    getTemporaryDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getTemporaryDirectory: ${value.toString()}");
+    });
+
+    //getApplicationCacheDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/cache'
+    getApplicationCacheDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getApplicationCacheDirectory: ${value.toString()}");
+    });
+
+//   //getLibraryPath is not supported on Android
+//   getLibraryDirectory().then((value) {
+//     dPrint(filename: "wrtiefile", msg: "getLibraryDirectory: ${value.toString()}");
+//   });
+  }
+
   void createDirectory() async {
     try {
       //'/data/user/0/in.mbfgroup.flutter_widget_examples/app_flutter'
