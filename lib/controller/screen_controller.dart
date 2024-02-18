@@ -2,7 +2,9 @@ import 'package:flutter_widget_examples/presentation/screens/excel_data_table.da
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview_animated_cards.dart';
+import 'package:flutter_widget_examples/presentation/screens/speech.dart';
 import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
+import 'package:flutter_widget_examples/presentation/screens/volume.dart';
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/presentation/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_file_view.dart';
@@ -52,6 +54,8 @@ enum Screens {
   tabBarApp4,
   pageViewAnimatedCards,
   pageViewAnimatedCards2,
+  volumePage,
+  speechPage,
 }
 
 /// Home() screen is default
@@ -141,11 +145,15 @@ class ScreenController {
       case Screens.tabBarApp3:
         return const TabBarExample3();
       case Screens.pageViewAnimatedCards:
-        return PageViewAnimatedCards();
+        return const PageViewAnimatedCards();
       case Screens.pageViewAnimatedCards2:
-        return PageViewAnimatedCards2();
+        return const PageViewAnimatedCards2();
       case Screens.tabBarApp4:
-        return TabBarExample4();
+        return const TabBarExample4();
+      case Screens.volumePage:
+        return const VolumeApp();
+      case Screens.speechPage:
+        return const MySpeechApp();
       default:
         return const Home();
     }
