@@ -1,5 +1,6 @@
 import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
+import 'package:flutter_widget_examples/presentation/screens/merged_grid_view.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview_animated_cards.dart';
 import 'package:flutter_widget_examples/presentation/screens/speech.dart';
@@ -56,6 +57,7 @@ enum Screens {
   pageViewAnimatedCards2,
   volumePage,
   speechPage,
+  mergedGridView,
 }
 
 /// Home() screen is default
@@ -154,6 +156,8 @@ class ScreenController {
         return const VolumeApp();
       case Screens.speechPage:
         return const MySpeechApp();
+      case Screens.mergedGridView:
+        return MergedGridView();
       default:
         return const Home();
     }
