@@ -26,7 +26,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
     final role = ref.watch(roleControllerProvider);
     final screenControllerNotifier = ref.read(screenControllerProvider.notifier);
     dPrint(filename: _filename, msg: "Bottom Status Bar Widget build...");
-    //need conatiner to show bottom bar background and need ink to show icon button's splash radius
+    //need container to show bottom bar background and need ink to show icon button's splash radius
     // ignore: avoid_unnecessary_containers
     return Ink(
       decoration: BoxDecoration(

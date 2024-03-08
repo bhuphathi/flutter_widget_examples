@@ -211,56 +211,56 @@ class CounterStorage {
       dPrint(filename: _filename, tag: "create_dir: tempDir", msg: tempDir.path);
 
       if (checkPlatform.isAndroid) {
-        var dir = '/storage/emulated/0/mbf';
+        // var dir = '/storage/emulated/0/mbf';
+        // //working
+        // Directory(dir)
+        //     .create()
+        //     .then((value) => dPrint(filename: _filename, msg: "create_dir: ${value.path}"));
         //working
-        Directory(dir)
-            .create()
-            .then((value) => dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}"));
-        //working
-        dir = '/storage/emulated/0/Android/mbf';
+        var dir = '/storage/emulated/0/Android/mbf';
         Directory(dir).create(recursive: true).then((value) {
-          dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}");
+          dPrint(filename: _filename, msg: "create_dir: ${value.path}");
         });
         //create dir with 'space' - working
         dir = '/storage/emulated/0/Android/media/ ';
         Directory(dir).create(recursive: true).then((value) {
-          dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}");
+          dPrint(filename: _filename, msg: "create_dir: ${value.path}");
         });
         //create dir 'com.mbf.org' - working
         dir = '/storage/emulated/0/Android/media/com.mbf.org';
         Directory(dir).create(recursive: true).then((value) {
-          dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}");
+          dPrint(filename: _filename, msg: "create_dir: ${value.path}");
         });
         //create dir with '.space' - working
         dir = '/storage/emulated/0/Android/media/.mbf';
         Directory(dir).create(recursive: true).then((value) {
-          dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}");
+          dPrint(filename: _filename, msg: "create_dir: ${value.path}");
         });
         //create dir with 'space' - working
         dir = '/storage/emulated/0/Android/media/wdata';
         Directory(dir).create(recursive: true).then((value) {
-          dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}");
+          dPrint(filename: _filename, msg: "create_dir: ${value.path}");
         });
         //working
         dir = '/storage/emulated/0/Android/media/mbf';
         Directory(dir)
             .create(recursive: true)
-            .then((value) => dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}"));
+            .then((value) => dPrint(filename: _filename, msg: "create_dir: ${value.path}"));
 
         //working
         dir = '/storage/emulated/0/Download/mbf';
         Directory(dir)
             .create(recursive: true)
-            .then((value) => dPrint(filename: _filename, msg: "create_dir: $dir: ${value.path}"));
+            .then((value) => dPrint(filename: _filename, msg: "create_dir: ${value.path}"));
 
         //not in linux, android
-        final libDir = await getLibraryDirectory();
+        // final libDir = await getLibraryDirectory();
         //[Directory: '/storage/emulated/0/Android/data/in.mbfgroup.flutter_widget_examples/cache', Directory: '/storage/0BFB-290F/Android/data/in.mbfgroup.flutter_widget_examples/cache']
         final extCacheDir = await getExternalCacheDirectories();
         //[Directory: '/storage/emulated/0/Android/data/in.mbfgroup.flutter_widget_examples/files', Directory: '/storage/0BFB-290F/Android/data/in.mbfgroup.flutter_widget_examples/files']
         final extStorageDir = await getExternalStorageDirectories();
 
-        dPrint(filename: _filename, tag: "create_dir: libDir", msg: libDir.path);
+        // dPrint(filename: _filename, tag: "create_dir: libDir", msg: libDir.path);
         dPrint(filename: _filename, tag: "create_dir: extCacheDir", msg: extCacheDir!.first.path);
         dPrint(filename: _filename, tag: "create_dir: extStorageDir", msg: extStorageDir!.first.path);
       } else if (checkPlatform.isLinux) {
@@ -384,6 +384,108 @@ class _ReadWriteDemoState extends State<ReadWriteDemo> {
             const SizedBox(height: 5),
             ElevatedButton(
                 onPressed: widget.storage.createDirectory, child: const Text("Create Directory")),
+            const SizedBox(height: 5),
+            ElevatedButton(
+                onPressed: () async {
+                  // var appDocs = await getApplicationDocumentsDirectory();
+                  // var appCache = await getApplicationCacheDirectory();
+                  // var appSupport = await getApplicationSupportDirectory();
+                  // var downloadDir = await getDownloadsDirectory();
+                  // var extCache = await getExternalCacheDirectories();
+                  // var extStorageList = await getExternalStorageDirectories();
+                  // var extStorageDir = await getExternalStorageDirectory();
+                  // var tmpDir = await getTemporaryDirectory();
+
+                  // print("appDocs: ${appDocs.path}");
+                  // print("appCache: ${appCache.path}");
+                  // print("appSupport: ${appSupport.path}");
+                  // print("downloadDir: ${downloadDir?.path}");
+                  // print("extCache: ${extCache?.toString()}");
+                  // print("extStorageList: ${extStorageList?.toString()}");
+                  // print("extStorageDir: ${extStorageDir?.path}");
+                  // print("tmpDir: ${tmpDir.path}\n\n ");
+
+                  ///data/user/0/com.example.flutter_widget_examples/app_flutter
+                  ///data/user/0/com.example.flutter_widget_examples/cache
+                  ///data/user/0/com.example.flutter_widget_examples/cache
+                  ///data/user/0/com.example.flutter_widget_examples/files
+                  ///storage/emulated/0/Android/data/com.example.flutter_widget_examples/files/downloads
+                  ///storage/emulated/0/Android/data/com.example.flutter_widget_examples/files
+                  ///storage/emulated/0/Android/data/com.example.flutter_widget_examples/cache', Directory: '
+                  ///storage/0F1E-3108/Android/data/com.example.flutter_widget_examples/cache']
+                  ///storage/emulated/0/Android/data/com.example.flutter_widget_examples/files', Directory: '
+                  ///storage/0F1E-3108/Android/data/com.example.flutter_widget_examples/files']
+                  ///
+                  //[Directory: '
+                  //[Directory: '
+
+                  // File('${appDocs.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //     dPrint(filename: _filename, msg: "App Docs dir: ${appDocs.path}: $value"));
+
+                  // File('${appCache.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //     dPrint(filename: _filename, msg: "App Cache dir: ${appCache.path}: $value"));
+
+                  // File('${appSupport.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //     dPrint(filename: _filename, msg: "App Support dir: ${appSupport.path}: $value"));
+
+                  // if (downloadDir != null) {
+                  //   File('${downloadDir.path}/testfile.txt').writeAsString("test data...").then(
+                  //       (value) => dPrint(
+                  //           filename: _filename, msg: "Download dir: ${downloadDir.path}: $value"));
+                  // }
+
+                  // if (extCache != null) {
+                  //   for (var element in extCache) {
+                  //     File('${element.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //         dPrint(
+                  //             filename: _filename, msg: "External Cache dir: ${element.path}: $value"));
+                  //   }
+                  // }
+
+                  // if (extStorageList != null) {
+                  //   for (var element in extStorageList) {
+                  //     File('${element.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //         dPrint(
+                  //             filename: _filename,
+                  //             msg: "External Storage dir: ${element.path}: $value"));
+                  //   }
+                  // }
+
+                  // File('${extStorageDir?.path}/testfile.txt').writeAsString("test data...").then(
+                  //     (value) => dPrint(
+                  //         filename: _filename,
+                  //         msg: "External Storage dir: ${extStorageDir?.path}: $value"));
+
+                  // File('${tmpDir.path}/testfile.txt').writeAsString("test data...").then(
+                  //     (value) => dPrint(filename: _filename, msg: "Temp dir: ${tmpDir.path}: $value"));
+
+                  Directory('/storage/emulated/0/Documents/mbf').create().then((value) {
+                    dPrint(
+                        filename: _filename,
+                        msg: "create_dir: '/storage/emulated/0/mbf': ${value.path}");
+                  });
+
+                  File('/storage/emulated/0/Documents/mbf/testfile.txt')
+                      .writeAsString("test data...")
+                      .then((value) => dPrint(
+                          filename: _filename, msg: "/storage/emulated/0/mbf/testfile.txt: $value"));
+                          
+                  Directory('/storage/emulated/0/Documents/mbf').create().then((value) {
+                    dPrint(
+                        filename: _filename,
+                        msg: "create_dir: '/storage/emulated/0/mbf': ${value.path}");
+                  });
+
+                  File('/storage/emulated/0/Documents/mbf/testfile.txt')
+                      .writeAsString("test data...")
+                      .then((value) => dPrint(
+                          filename: _filename, msg: "/storage/emulated/0/mbf/testfile.txt: $value"));
+
+                  // var libDir = await getLibraryDirectory();
+                  // File('${libDir.path}/testfile.txt').writeAsString("test data...").then((value) =>
+                  //     dPrint(filename: _filename, msg: "Library dir: ${libDir.path}: $value"));
+                },
+                child: const Text("Test File Write")),
             const SizedBox(height: 5),
             Text('Button tapped $_counter time${_counter == 1 ? '' : 's'}.'),
             const SizedBox(height: 5),
