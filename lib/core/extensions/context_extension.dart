@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';
 
-const _filename = "globalbounds";
+const _filename = "context_extension.dart";
 
-extension GlobalPaintBounds on BuildContext {
+extension CustomContextExtensions on BuildContext {
+  Offset getWidgetBottomLeftOffset() {
+    final RenderBox box = findRenderObject() as RenderBox;
+    final position = box.localToGlobal(Offset.zero);
+
+    final bottomLeftOffset = Offset(position.dx, position.dy + box.size.height);
+    // final bottomRightOffset = Offset(position.dx + box.size.width, position.dy + box.size.height);
+    return bottomLeftOffset;
+  }
+
   Rect? get globalPaintBounds {
     final renderObject = findRenderObject();
     dPrint(filename: _filename, msg: "renderObject $renderObject");
@@ -17,14 +26,5 @@ extension GlobalPaintBounds on BuildContext {
     } else {
       return null;
     }
-  }
-
-  Offset getWidgetOffset() {
-    final RenderBox box = findRenderObject() as RenderBox;
-    final position = box.localToGlobal(Offset.zero);
-
-    final bottomLeftOffset = Offset(position.dx, position.dy + box.size.height);
-    // final bottomRightOffset = Offset(position.dx + box.size.width, position.dy + box.size.height);
-    return bottomLeftOffset;
   }
 }

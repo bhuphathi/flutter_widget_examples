@@ -165,7 +165,7 @@ class ScreenController {
       case Screens.showCustomMenuOnTappedWidget:
         return ShowCustomMenuOnTappedWidget();
       case Screens.positionOfWidget:
-        return HomePage();
+        return const PositionOfObject();
       default:
         return const Home();
     }

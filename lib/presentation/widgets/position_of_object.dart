@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_examples/core/extensions/context_extension.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';
+import 'package:flutter_widget_examples/core/utils/show_custom_menu.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
+class PositionOfObject extends StatelessWidget {
+  const PositionOfObject({super.key});
 
-class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -37,16 +31,46 @@ class HomePage extends StatelessWidget {
 
                   final RenderBox box = context.findRenderObject() as RenderBox;
                   final position = box.localToGlobal(Offset.zero);
-                  final bottomLeftOffset = Offset(position.dx, position.dy + box.size.height);
+                  final bottomRightOffset =
+                      Offset(position.dx + box.size.width, position.dy + box.size.height);
 
                   dPrint(filename: "position_of_widget", msg: "position ${position.dx}, ${position.dy}");
                   dPrint(
                       filename: "position_of_widget",
-                      msg: "position ${position.dx}, ${position.dy + box.size.height}");
+                      msg: "position ${position.dx}, bottomLeftOffset $bottomRightOffset");
                   dPrint(
                       filename: "position_of_widget",
-                      msg: "getWidgetOffset ${context.getWidgetOffset()}");
-                  showCustomMenu(context, context.getWidgetOffset());
+                      msg: "getWidgetOffset ${context.getWidgetBottomLeftOffset()}");
+                  showCustomMenuEx(context, bottomRightOffset);
+                  showCustomMenu(context, items: const [
+                    PopupMenuItem<String>(
+                      value: 'option1',
+                      child: Text('Option 1'),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'option2',
+                      child: Text('Option 2'),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'option3',
+                      child: Text('Option 3'),
+                    ),
+                  ], onValue: (String? value) {
+                    // Handle menu item selection here
+                    if (value != null) {
+                      switch (value) {
+                        case 'option1':
+                          // Handle option 1
+                          break;
+                        case 'option2':
+                          // Handle option 2
+                          break;
+                        case 'option3':
+                          // Handle option 3
+                          break;
+                      }
+                    }
+                  });
                 },
                 child: Text(
                   'Click to detect position ${position?.dx}, ${position?.dy}',
@@ -61,7 +85,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-void showCustomMenu(BuildContext context, Offset position) {
+void showCustomMenuEx(BuildContext context, Offset position) {
   final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
 
   showMenu<String>(
