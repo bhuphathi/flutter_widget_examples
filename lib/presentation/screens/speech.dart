@@ -217,24 +217,17 @@ class _MySpeechAppState extends State<MySpeechApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter TTS'),
-        ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              _inputSection(),
-              _btnSection(),
-              _engineSection(),
-              _futureBuilder(),
-              _buildSliders(),
-              if (isAndroid) _getMaxSpeechInputLengthSection(),
-            ],
-          ),
-        ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          _inputSection(),
+          _btnSection(),
+          _engineSection(),
+          _futureBuilder(),
+          _buildSliders(),
+          if (isAndroid) _getMaxSpeechInputLengthSection(),
+        ],
       ),
     );
   }

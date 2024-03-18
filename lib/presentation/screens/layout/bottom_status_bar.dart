@@ -61,7 +61,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.lifeCycleDemo),
+              onPressed: () => switchScreen(screen: Screens.lifeCycleDemo, ref: ref),
               icon: const Icon(
                 FontAwesomeIcons.link,
                 size: 18,
@@ -70,7 +70,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.radixTestScreenDemo),
+              onPressed: () => switchScreen(screen: Screens.radixTestScreenDemo, ref: ref),
               icon: const Icon(
                 FluentIcons.color_24_regular,
                 size: 18,
@@ -79,7 +79,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.customMaterialTheme),
+              onPressed: () => switchScreen(screen: Screens.customMaterialTheme, ref: ref),
               icon: const Icon(
                 FluentIcons.color_background_20_regular,
                 size: 18,
@@ -88,7 +88,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.materialThemeDemo),
+              onPressed: () => switchScreen(screen: Screens.materialThemeDemo, ref: ref),
               icon: const Icon(
                 FluentIcons.color_background_20_filled,
                 size: 18,
@@ -96,12 +96,12 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
               tooltip: "Material Theme",
             ),
             TextButton(
-              onPressed: () => pushScreen(context, Screens.fontAwesomeGalleryDemo),
+              onPressed: () => switchScreen(screen: Screens.fontAwesomeGalleryDemo, ref: ref),
               child: const Tooltip(message: "Font Awesome", child: Text("FA")),
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.fluentUIShowcaseWidgetDemo),
+              onPressed: () => switchScreen(screen: Screens.fluentUIShowcaseWidgetDemo, ref: ref),
               icon: const Icon(
                 FluentIcons.fluent_24_regular,
                 size: 18,
@@ -110,7 +110,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.sidePanelExample),
+              onPressed: () => switchScreen(screen: Screens.sidePanelExample, ref: ref),
               icon: const Icon(
                 Icons.file_copy,
                 size: 18,
@@ -119,7 +119,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.readWriteDemo),
+              onPressed: () => switchScreen(screen: Screens.readWriteDemo, ref: ref),
               icon: const Icon(
                 Icons.enhanced_encryption_outlined,
                 size: 18,
@@ -128,7 +128,7 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             ),
             IconButton(
               splashRadius: 24,
-              onPressed: () => pushScreen(context, Screens.screens),
+              onPressed: () => switchScreen(screen: Screens.screens, ref: ref),
               icon: const Icon(
                 Icons.screen_lock_landscape,
                 size: 18,
@@ -163,5 +163,18 @@ class _BottomStatusBarState extends ConsumerState<BottomStatusBar> {
             body: ScreenController.getScreen(screen));
       }),
     );
+  }
+
+  void switchScreen({
+    required Screens screen,
+    required WidgetRef ref,
+    BuildContext? context,
+    bool fromMainDrawer = false,
+  }) {
+    if (fromMainDrawer) assert(context != null, "context must not be null");
+
+    //to close mainDrawer if pushed screen from main drawer
+    fromMainDrawer ? Navigator.pop(context!) : null;
+    ref.read(screenControllerProvider.notifier).switchScreen(screen: screen);
   }
 }

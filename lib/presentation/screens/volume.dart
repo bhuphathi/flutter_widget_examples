@@ -36,12 +36,7 @@ class _VolumeAppState extends State<VolumeApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Volume Plugin example app'),
-        ),
-        body: Column(
+    return Column(
           children: [
             Text('Current volume: $_volumeListenerValue'),
             Row(
@@ -97,8 +92,6 @@ class _VolumeAppState extends State<VolumeApp> {
               ],
             ),
           ],
-        ),
-      ),
-    );
+        );
   }
 }
