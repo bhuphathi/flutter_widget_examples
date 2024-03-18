@@ -6,6 +6,8 @@ import 'package:flutter_widget_examples/presentation/screens/pageview_animated_c
 import 'package:flutter_widget_examples/presentation/screens/speech.dart';
 import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
 import 'package:flutter_widget_examples/presentation/screens/volume.dart';
+import 'package:flutter_widget_examples/presentation/widgets/position_of_object.dart';
+import 'package:flutter_widget_examples/presentation/widgets/show_custom_menu_ontapped.dart';
 import 'package:flutter_widget_examples/screens.dart';
 import 'package:flutter_widget_examples/presentation/screens/card_expansion.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_file_view.dart';
@@ -58,6 +60,8 @@ enum Screens {
   volumePage,
   speechPage,
   mergedGridView,
+  showCustomMenuOnTappedWidget,
+  positionOfWidget,
 }
 
 /// Home() screen is default
@@ -157,7 +161,11 @@ class ScreenController {
       case Screens.speechPage:
         return const MySpeechApp();
       case Screens.mergedGridView:
-        return MergedGridView();
+        return const MergedGridView();
+      case Screens.showCustomMenuOnTappedWidget:
+        return ShowCustomMenuOnTappedWidget();
+      case Screens.positionOfWidget:
+        return HomePage();
       default:
         return const Home();
     }
