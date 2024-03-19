@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_widget_examples/controller/screen_controller.dart';
 import 'package:flutter_widget_examples/core/utils/string_extension.dart';
-import 'package:flutter_widget_examples/presentation/screens/layout/app_bar.dart';
-import 'package:flutter_widget_examples/presentation/screens/layout/bottom_status_bar.dart';
-import 'package:flutter_widget_examples/presentation/screens/layout/main_drawer.dart';
+import 'package:flutter_widget_examples/temp/searchbar.dart';
 
 class ScreensDemo extends ConsumerStatefulWidget {
   const ScreensDemo({super.key});
@@ -16,20 +14,38 @@ class ScreensDemo extends ConsumerStatefulWidget {
 }
 
 class _ScreensDemoState extends ConsumerState<ScreensDemo> {
+  String searchText = "";
   @override
   Widget build(BuildContext context) {
-    return GridView(
-        shrinkWrap: true,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          // childAspectRatio: 4,
-          mainAxisExtent: 65,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 4,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SearchBarWidget(
+          title: "search",
+          setSearchKeyword: (value) {
+            setState(() {
+              searchText = value;
+            });
+          },
         ),
-        children: [
-          for (var screen in Screens.values) widgetScreen(context, screen),
-        ]);
+        Expanded(
+          child: GridView(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                // childAspectRatio: 4,
+                mainAxisExtent: 65,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 4,
+              ),
+              children: [
+                for (var screen in Screens.values)
+                  if (screen.name.trim().toLowerCase().contains(searchText.trim().toLowerCase()))
+                    widgetScreen(context, screen),
+              ]),
+        ),
+      ],
+    );
   }
 
   InkWell widgetScreen(BuildContext context, Screens screen) {
@@ -48,7 +64,7 @@ class _ScreensDemoState extends ConsumerState<ScreensDemo> {
         // );
       },
       child: Card(
-        color: Color(Random().nextInt(0xFFEEBF24)),
+        color: Color(Random().nextInt(0xFFEEBFFF)),
         child: Center(child: Text(screen.name.splitCamelCase())),
       ),
     );
