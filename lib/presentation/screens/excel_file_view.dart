@@ -22,7 +22,6 @@ class ExcelFileDemo extends ConsumerStatefulWidget {
 class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
   final rowKey = GlobalKey();
   bool getFile = false;
-  final TextEditingController _searchTextController = TextEditingController();
   var _searchTerm = "";
   var _isListMode = true;
 
@@ -89,7 +88,6 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
                 Expanded(
                   child: SearchBarWidget(
                     title: "Filter xlsx file data",
-                    searchTextController: _searchTextController,
                     setSearchKeyword: setSearchKeyword,
                     setListMode: setListMode,
                   ),

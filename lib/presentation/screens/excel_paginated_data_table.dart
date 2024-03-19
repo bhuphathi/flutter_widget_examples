@@ -22,7 +22,6 @@ class _ExcelPaginatedDatatableViewState extends ConsumerState<ExcelPaginatedData
   final rowKey = GlobalKey();
   final btnKey = GlobalKey();
   final pgDataTableKey = GlobalKey();
-  final TextEditingController _searchTextController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   var _searchTerm = "";
   var _isListMode = true;
@@ -104,7 +103,6 @@ class _ExcelPaginatedDatatableViewState extends ConsumerState<ExcelPaginatedData
                 Expanded(
                   child: SearchBarWidget(
                     title: "Excel datatable view",
-                    searchTextController: _searchTextController,
                     setSearchKeyword: searchText,
                     setListMode: listMode,
                   ),

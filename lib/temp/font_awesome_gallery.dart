@@ -15,7 +15,6 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
 //   var _isSearching = false;
   var _searchTerm = "";
   var _isListMode = true;
-  TextEditingController searchText = TextEditingController();
 
   void listMode(bool value) {
     setState(() {
@@ -42,7 +41,6 @@ class FontAwesomeGalleryState extends State<FontAwesomeGallery> {
           children: [
             SearchBarWidget(
                 title: 'Search FontAwesome icons',
-                searchTextController: searchText,
                 setListMode: listMode,
                 setSearchKeyword: setSearchKeyword),
             Expanded(

@@ -23,7 +23,6 @@ class _ExcelDatatableViewState extends ConsumerState<ExcelDatatableView> {
   final rowKey = GlobalKey();
   FilePickerResult? pickedFile;
   var loadingState = Future.value(ConnectionState.done);
-  final TextEditingController _searchTextController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   var _searchTerm = "";
   var _isListMode = true;
@@ -207,7 +206,6 @@ class _ExcelDatatableViewState extends ConsumerState<ExcelDatatableView> {
         Expanded(
           child: SearchBarWidget(
             title: "Excel datatable view",
-            searchTextController: _searchTextController,
             setSearchKeyword: searchText,
             setListMode: listMode,
           ),

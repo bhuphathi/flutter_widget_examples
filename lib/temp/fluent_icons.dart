@@ -13,7 +13,6 @@ class FluentUIShowcaseWidget extends StatefulWidget {
 class FluentUIShowcaseWidgetState extends State<FluentUIShowcaseWidget> {
   var _searchTerm = "";
   var _isListMode = true;
-  TextEditingController searchText = TextEditingController();
 
   void listMode(bool value) {
     setState(() {
@@ -41,7 +40,6 @@ class FluentUIShowcaseWidgetState extends State<FluentUIShowcaseWidget> {
           // _searchBar(context),
           SearchBarWidget(
               title: 'Search Fluent icons',
-              searchTextController: searchText,
               setListMode: listMode,
               setSearchKeyword: setSearchKeyword),
           Expanded(
