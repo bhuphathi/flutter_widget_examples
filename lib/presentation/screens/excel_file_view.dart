@@ -183,7 +183,7 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.error_outline, color: theme.highLighterCrimson, size: 60),
+                        Icon(Icons.error_outline, color: theme.hlError, size: 60),
                         Padding(
                             padding: const EdgeInsets.only(top: 16),
                             child: Text('Error: ${snapshot.error}')),

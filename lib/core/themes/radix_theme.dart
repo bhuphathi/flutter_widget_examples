@@ -1,6 +1,6 @@
-// import 'package:flutter_widget_examples/utils/debug_print.dart';
-import 'package:flutter_widget_examples/core/utils/string_extension.dart';
+// import 'package:blweighment/utils/debug_print.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_examples/core/utils/string_extension.dart';
 import 'package:radix_colors/radix_colors.dart';
 
 // const _filename = "radix_theme.dart";
@@ -19,10 +19,10 @@ enum MainColors {
   info,
   success,
   warning,
-  highLighterCrimson,
-  highLighterIndigo,
-  highLighterGreen,
-  highLighterOrange,
+  hlError,
+  hlInfo,
+  hlSuccess,
+  hlWarning,
 }
 
 enum ThemeNames {
@@ -67,6 +67,7 @@ List<ThemeNames> convertEnumToListOfEnum(ThemeNames enumValue) {
   return convertedEnumList;
 }
 
+///{@macro RadixColor}
 class RadixTheme {
   const RadixTheme.theme({
     required this.themeName,
@@ -129,21 +130,21 @@ class RadixTheme {
     required this.warningContainer,
     required this.onWarningContainer,
     //highligh error
-    required this.highLighterCrimson,
-    required this.highLighterCrimsonA,
-    required this.highLighterCrimsonText,
+    required this.hlError,
+    required this.hlErrorA,
+    required this.hlErrorText,
     //highligh info
-    required this.highLighterIndigo,
-    required this.highLighterIndigoA,
-    required this.highLighterIndigoText,
+    required this.hlInfo,
+    required this.hlInfoA,
+    required this.hlInfoText,
     //highligh success
-    required this.highLighterGreen,
-    required this.highLighterGreenA,
-    required this.highLighterGreenText,
+    required this.hlSuccess,
+    required this.hlSuccessA,
+    required this.hlSuccessText,
     //highlight warning
-    required this.highLighterOrange,
-    required this.highLighterOrangeA,
-    required this.highLighterOrangeText,
+    required this.hlWarning,
+    required this.hlWarningA,
+    required this.hlWarningText,
     //background
     required this.background,
     required this.onBackground,
@@ -165,6 +166,8 @@ class RadixTheme {
     required this.outlineVariant,
   });
   final String themeName;
+
+  /// all radix colors with brightness settings as per theme
   final RadixColorsDynamic radixColorsDynamic;
 
   ///Light: Colors.white, Dark: sand.step1
@@ -506,7 +509,7 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterCrimson;
+  final RadixColor hlError;
 
   ///default color: step9
   ///
@@ -514,10 +517,10 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterCrimsonA;
+  final RadixColor hlErrorA;
 
   ///default color: step12: whiteA | blackA : light and dark theme won't work
-  final RadixColor highLighterCrimsonText;
+  final RadixColor hlErrorText;
 
   ///default color: step9\
   ///highlight info colors
@@ -526,7 +529,7 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterIndigo;
+  final RadixColor hlInfo;
 
   ///default color: step9
   ///
@@ -534,10 +537,10 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterIndigoA;
+  final RadixColor hlInfoA;
 
   ///default color: step12: whiteA | blackA : light and dark theme won't work
-  final RadixColor highLighterIndigoText;
+  final RadixColor hlInfoText;
 
   ///default color: step9\
   ///highlight success colors
@@ -546,7 +549,7 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterGreen;
+  final RadixColor hlSuccess;
 
   ///default color: step9
   ///
@@ -554,10 +557,10 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterGreenA;
+  final RadixColor hlSuccessA;
 
   ///default color: step12: whiteA | blackA : light and dark theme won't work
-  final RadixColor highLighterGreenText;
+  final RadixColor hlSuccessText;
 
   ///default color: step9\
   ///highlight warning colors
@@ -566,7 +569,7 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterOrange;
+  final RadixColor hlWarning;
 
   ///default color: step9
   ///
@@ -574,10 +577,10 @@ class RadixTheme {
   ///
   ///See also:
   ///{@macro RadixColor}
-  final RadixColor highLighterOrangeA;
+  final RadixColor hlWarningA;
 
   ///default color: step12: whiteA | blackA : light and dark theme won't work
-  final RadixColor highLighterOrangeText;
+  final RadixColor hlWarningText;
 
   ///default color: secondary.step1
   ///
@@ -793,18 +796,18 @@ class RadixTheme {
       "onWarning": onWarning,
       "warningContainer": warningContainer,
       "onWarningContainer": onWarningContainer,
-      "highLighterCrimson": highLighterCrimson,
-      "highLighterCrimsonA": highLighterCrimsonA,
-      "highLighterCrimsonText": highLighterCrimsonText,
-      "highLighterIndigo": highLighterIndigo,
-      "highLighterIndigoA": highLighterIndigoA,
-      "highLighterIndigoText": highLighterIndigoText,
-      "highLighterGreen": highLighterGreen,
-      "highLighterGreenA": highLighterGreenA,
-      "highLighterGreenText": highLighterGreenText,
-      "highLighterOrange": highLighterOrange,
-      "highLighterOrangeA": highLighterOrangeA,
-      "highLighterOrangeText": highLighterOrangeText,
+      "hlError": hlError,
+      "hlErrorA": hlErrorA,
+      "hlErrorText": hlErrorText,
+      "hlInfo": hlInfo,
+      "hlInfoA": hlInfoA,
+      "hlInfoText": hlInfoText,
+      "hlSuccess": hlSuccess,
+      "hlSuccessA": hlSuccessA,
+      "hlSuccessText": hlSuccessText,
+      "hlWarning": hlWarning,
+      "hlWarningA": hlWarningA,
+      "hlWarningText": hlWarningText,
       "background": background,
       "onBackground": onBackground,
       "subtleBackground": subtleBackground,
@@ -1053,7 +1056,7 @@ class RadixTheme {
     final base = radixColorsDynamic.orange;
     final primary = radixColorsDynamic.iris;
     final secondary = radixColorsDynamic.sand;
-    final accent = radixColorsDynamic.yellow;
+    final accent = radixColorsDynamic.amber;
 
     return _createThemeColors(
       themeName: ThemeNames.orange.name,
@@ -1420,7 +1423,7 @@ class RadixTheme {
     final base = radixColorsDynamic.lime;
     final primary = radixColorsDynamic.iris;
     final secondary = radixColorsDynamic.olive;
-    final accent = radixColorsDynamic.brown;
+    final accent = radixColorsDynamic.plum; //https://www.quora.com/What-color-goes-well-with-lime-green
 
     return _createThemeColors(
       themeName: ThemeNames.lime.name,
@@ -1500,13 +1503,13 @@ class RadixTheme {
     required RadixColor tertiary,
     required RadixColorsDynamic radixColorsDynamic,
   }) {
-    final contrastColors = _contrastColors(brightness);
+    final textColors = getTextColors(brightness);
     final whiteBlackColors = _whiteAndBlackColors(brightness);
     final highlightColors = _highlightColors(brightness);
-    final baseText = contrastColors[getColorName(base.name)]!;
-    final primaryText = contrastColors[getColorName(primary.name)]!;
-    final secondaryText = contrastColors[getColorName(secondary.name)]!;
-    final tertiaryText = contrastColors[getColorName(tertiary.name)]!;
+    final baseText = textColors[getRadixColorName(base.name)]!;
+    final primaryText = textColors[getRadixColorName(primary.name)]!;
+    final secondaryText = textColors[getRadixColorName(secondary.name)]!;
+    final tertiaryText = textColors[getRadixColorName(tertiary.name)]!;
 
     return RadixTheme.theme(
       themeName: themeName.toCapitalize(),
@@ -1516,128 +1519,130 @@ class RadixTheme {
       white: secondary.step1,
       black: secondary.step12,
       base: base,
-      baseA: scaleAColors(brightness, base),
+      baseA: getScaleAColors(brightness, base),
       //   baseA: _rxColorSwatch("baseA", scaleAColors(brightness, base), 3),
       baseText: baseText,
       //primary Colors
       primary: primary,
-      primaryA: scaleAColors(brightness, primary),
+      primaryA: getScaleAColors(brightness, primary),
       primaryText: primaryText,
-      onPrimary: _radixColorSwatch("onPrimary", primary, 1),
-      primaryContainer: _radixColorSwatch("primaryContainer", primary, 3),
-      onPrimaryContainer: _radixColorSwatch("onPrimaryContainer", primary, 11),
+      onPrimary: getRadixColorWithCustomName("onPrimary", primary, 1),
+      primaryContainer: getRadixColorWithCustomName("primaryContainer", primary, 3),
+      onPrimaryContainer: getRadixColorWithCustomName("onPrimaryContainer", primary, 12),
       //secondary colors
-      secondary: secondary,
-      secondaryA: scaleAColors(brightness, secondary),
+      secondary: getRadixColorWithCustomName("onSecondary", secondary, 10),
+      secondaryA: getScaleAColors(brightness, secondary),
       secondaryText: secondaryText,
-      onSecondary: _radixColorSwatch("onSecondary", secondary, 1),
-      secondaryContainer: _radixColorSwatch("secondaryContainer", secondary, 3),
-      onSecondaryContainer: _radixColorSwatch("onSecondaryContainer", secondary, 11),
+      onSecondary: getRadixColorWithCustomName("onSecondary", secondary, 1),
+      secondaryContainer: getRadixColorWithCustomName("secondaryContainer", secondary, 3),
+      onSecondaryContainer: getRadixColorWithCustomName("onSecondaryContainer", secondary, 12),
       //tertiary colors
       tertiary: tertiary,
-      tertiaryA: scaleAColors(brightness, tertiary),
+      tertiaryA: getScaleAColors(brightness, tertiary),
       tertiaryText: tertiaryText,
-      onTertiary: _radixColorSwatch("onTertiary", tertiary, 1),
-      tertiaryContainer: _radixColorSwatch("tertiaryContainer", tertiary, 3),
-      onTertiaryContainer: _radixColorSwatch("onTertiaryContainer", tertiary, 11),
+      onTertiary: getRadixColorWithCustomName("onTertiary", tertiary, 1),
+      tertiaryContainer: getRadixColorWithCustomName("tertiaryContainer", tertiary, 3),
+      onTertiaryContainer: getRadixColorWithCustomName("onTertiaryContainer", tertiary, 12),
       //error colors
       error: highlightColors.error,
-      errorA: scaleAColors(brightness, highlightColors.error),
+      errorA: getScaleAColors(brightness, highlightColors.error),
       errorText: highlightColors.errorText,
-      onError: _radixColorSwatch("onError", highlightColors.error, 1),
-      errorContainer: _radixColorSwatch("errorContainer", highlightColors.error, 3),
-      onErrorContainer: _radixColorSwatch("onErrorContainer", highlightColors.error, 11),
+      onError: getRadixColorWithCustomName("onError", highlightColors.error, 1),
+      errorContainer: getRadixColorWithCustomName("errorContainer", highlightColors.error, 3),
+      onErrorContainer: getRadixColorWithCustomName("onErrorContainer", highlightColors.error, 12),
       //info colors
       info: highlightColors.info,
-      infoA: scaleAColors(brightness, highlightColors.info),
+      infoA: getScaleAColors(brightness, highlightColors.info),
       infoText: highlightColors.infoText,
-      onInfo: _radixColorSwatch("onInfo", highlightColors.info, 1),
-      infoContainer: _radixColorSwatch("infoContainer", highlightColors.info, 3),
-      onInfoContainer: _radixColorSwatch("onInfoContainer", highlightColors.info, 11),
+      onInfo: getRadixColorWithCustomName("onInfo", highlightColors.info, 1),
+      infoContainer: getRadixColorWithCustomName("infoContainer", highlightColors.info, 3),
+      onInfoContainer: getRadixColorWithCustomName("onInfoContainer", highlightColors.info, 12),
       //success colors
       success: highlightColors.success,
-      successA: scaleAColors(brightness, highlightColors.success),
+      successA: getScaleAColors(brightness, highlightColors.success),
       successText: highlightColors.successText,
-      onSuccess: _radixColorSwatch("onInfo", highlightColors.success, 1),
-      successContainer: _radixColorSwatch("infoContainer", highlightColors.success, 3),
-      onSuccessContainer: _radixColorSwatch("onInfoContainer", highlightColors.success, 11),
+      onSuccess: getRadixColorWithCustomName("onSuccess", highlightColors.success, 1),
+      successContainer: getRadixColorWithCustomName("SuccessContainer", highlightColors.success, 3),
+      onSuccessContainer: getRadixColorWithCustomName("onSuccessContainer", highlightColors.success, 12),
       //warning colors
       warning: highlightColors.warning,
-      warningA: scaleAColors(brightness, highlightColors.warning),
+      warningA: getScaleAColors(brightness, highlightColors.warning),
       warningText: highlightColors.warningText,
-      onWarning: _radixColorSwatch("onInfo", highlightColors.warning, 1),
-      warningContainer: _radixColorSwatch("infoContainer", highlightColors.warning, 3),
-      onWarningContainer: _radixColorSwatch("onInfoContainer", highlightColors.warning, 11),
+      onWarning: getRadixColorWithCustomName("onWarning", highlightColors.warning, 1),
+      warningContainer: getRadixColorWithCustomName("warningContainer", highlightColors.warning, 3),
+      onWarningContainer: getRadixColorWithCustomName("onWarningContainer", highlightColors.warning, 12),
       //highlight colors
-      highLighterCrimson: highlightColors.highLighterCrimson,
-      highLighterCrimsonA: scaleAColors(brightness, highlightColors.highLighterCrimson),
-      highLighterCrimsonText: highlightColors.highLighterCrimsonText,
-      highLighterIndigo: highlightColors.highLighterIndigo,
-      highLighterIndigoA: scaleAColors(brightness, highlightColors.highLighterIndigo),
-      highLighterIndigoText: highlightColors.highLighterIndigoText,
-      highLighterGreen: highlightColors.highLighterGreen,
-      highLighterGreenA: scaleAColors(brightness, highlightColors.highLighterGreen),
-      highLighterGreenText: highlightColors.highLighterGreenText,
-      highLighterOrange: highlightColors.highLighterOrange,
-      highLighterOrangeA: scaleAColors(brightness, highlightColors.highLighterOrange),
-      highLighterOrangeText: highlightColors.highLighterOrangeText,
+      hlError: highlightColors.hlError,
+      hlErrorA: getScaleAColors(brightness, highlightColors.hlError),
+      hlErrorText: highlightColors.hlErrorText,
+      hlInfo: highlightColors.hlInfo,
+      hlInfoA: getScaleAColors(brightness, highlightColors.hlInfo),
+      hlInfoText: highlightColors.hlInfoText,
+      hlSuccess: highlightColors.hlSuccess,
+      hlSuccessA: getScaleAColors(brightness, highlightColors.hlSuccess),
+      hlSuccessText: highlightColors.hlSuccessText,
+      hlWarning: highlightColors.hlWarning,
+      hlWarningA: getScaleAColors(brightness, highlightColors.hlWarning),
+      hlWarningText: highlightColors.hlWarningText,
       //background colors
-      background: _radixColorSwatch("background", secondary, 1),
-      onBackground: _radixColorSwatch("onBackground", secondary, 11),
-      subtleBackground: _radixColorSwatch("subtleBackground", secondary, 2),
-      onSubtleBackground: _radixColorSwatch("onSubtleBackground", secondary, 11),
-      contrastBackground: _radixColorSwatch("contrastBackground", base, 9),
+      background: getRadixColorWithCustomName("background", secondary, 1),
+      onBackground: getRadixColorWithCustomName("onBackground", secondary, 12),
+      subtleBackground: getRadixColorWithCustomName("subtleBackground", secondary, 2),
+      onSubtleBackground: getRadixColorWithCustomName("onSubtleBackground", secondary, 12),
+      //contrast background
+      contrastBackground: getRadixColorWithCustomName("contrastBackground", base, 9),
       onContrastBackground: baseText,
       //surface colors
-      surface: _radixColorSwatch("surface", base, 2),
-      onSurface: _radixColorSwatch("onSurface", base, 11),
-      inverseSurface: _radixColorSwatch("inverseSurface", secondary, 10),
-      onInverseSurface: _radixColorSwatch("onInverseSurface", secondary, 1),
-      surfaceVariant: _radixColorSwatch("surfaceVariant", secondary, 3),
-      onSurfaceVariant: _radixColorSwatch("onSurfaceVariant", secondary, 11),
-      surfaceTint: _radixColorSwatch("surfaceTint", primary, 3),
-      onSurfaceTint: _radixColorSwatch("onSurfaceTint", primary, 11),
+      surface: getRadixColorWithCustomName("surface", secondary, 2),
+      onSurface: getRadixColorWithCustomName("onSurface", secondary, 12),
+      inverseSurface: getRadixColorWithCustomName("inverseSurface", secondary, 12),
+      onInverseSurface: getRadixColorWithCustomName("onInverseSurface", secondary, 2),
+      //surface variant & tint
+      surfaceVariant: getRadixColorWithCustomName("surfaceVariant", secondary, 4),
+      onSurfaceVariant: getRadixColorWithCustomName("onSurfaceVariant", secondary, 12),
+      surfaceTint: getRadixColorWithCustomName("surfaceTint", secondary, 5),
+      onSurfaceTint: getRadixColorWithCustomName("onSurfaceTint", secondary, 12),
       //outline colors
-      outline: _radixColorSwatch("outline", secondary, 8),
-      outlineVariant: _radixColorSwatch("outlineVariant", secondary, 6),
+      outline: getRadixColorWithCustomName("outline", secondary, 10),
+      outlineVariant: getRadixColorWithCustomName("outlineVariant", secondary, 7),
     );
   }
 
   static HighlightColors _highlightColors(Brightness brightness) {
     final radixColorsDynamic = RadixColorsDynamic(brightness);
-    final contrastColors = _contrastColors(brightness);
+    final textColors = getTextColors(brightness);
 
     final RadixColor error = radixColorsDynamic.red;
     final RadixColor info = radixColorsDynamic.cyan;
     final RadixColor success = radixColorsDynamic.grass;
     final RadixColor warning = radixColorsDynamic.amber;
-    final RadixColor highLighterCrimson = radixColorsDynamic.crimson;
-    final RadixColor highLighterIndigo = radixColorsDynamic.indigo;
-    final RadixColor highLighterGreen = radixColorsDynamic.green;
-    final RadixColor highLighterOrange = radixColorsDynamic.orange;
+    final RadixColor hlError = radixColorsDynamic.tomato;
+    final RadixColor hlInfo = radixColorsDynamic.indigo;
+    final RadixColor hlSuccess = radixColorsDynamic.green;
+    final RadixColor hlWarning = radixColorsDynamic.orange;
 
     return (
       error: error,
-      errorText: contrastColors[getColorName(error.name)]!,
+      errorText: textColors[getRadixColorName(error.name)]!,
       info: info,
-      infoText: contrastColors[getColorName(info.name)]!,
+      infoText: textColors[getRadixColorName(info.name)]!,
       success: success,
-      successText: contrastColors[getColorName(success.name)]!,
+      successText: textColors[getRadixColorName(success.name)]!,
       warning: warning,
-      warningText: contrastColors[getColorName(warning.name)]!,
-      highLighterCrimson: highLighterCrimson,
-      highLighterCrimsonText: contrastColors[getColorName(highLighterCrimson.name)]!,
-      highLighterIndigo: highLighterIndigo,
-      highLighterIndigoText: contrastColors[getColorName(highLighterIndigo.name)]!,
-      highLighterGreen: highLighterGreen,
-      highLighterGreenText: contrastColors[getColorName(highLighterGreen.name)]!,
-      highLighterOrange: highLighterOrange,
-      highLighterOrangeText: contrastColors[getColorName(highLighterOrange.name)]!,
+      warningText: textColors[getRadixColorName(warning.name)]!,
+      hlError: hlError,
+      hlErrorText: textColors[getRadixColorName(hlError.name)]!,
+      hlInfo: hlInfo,
+      hlInfoText: textColors[getRadixColorName(hlInfo.name)]!,
+      hlSuccess: hlSuccess,
+      hlSuccessText: textColors[getRadixColorName(hlSuccess.name)]!,
+      hlWarning: hlWarning,
+      hlWarningText: textColors[getRadixColorName(hlWarning.name)]!,
     );
   }
 
   ///dark theme will not work for whiteA and blackA
-  static Map<String, RadixColor> _contrastColors(Brightness brightness) {
+  static Map<String, RadixColor> getTextColors(Brightness brightness) {
     final radixColorsDynamic = RadixColorsDynamic(brightness);
     return {
       //grey colors: white foreground text
@@ -1679,8 +1684,19 @@ class RadixTheme {
     };
   }
 
+  ///get alpha text color for the given RadixColor
+  ///
+  ///dark theme will not work for whiteA and blackA
+  static RadixColor getTextAColor(RadixColor color) {
+    var brightness = Brightness.light;
+    if (color.name!.contains("Dark")) brightness = Brightness.dark;
+    var colorName = getRadixColorName(color.name);
+
+    return getTextColors(brightness)[colorName]!;
+  }
+
   ///returns equivalent alpha scale radixcolor
-  static RadixColor scaleAColors(Brightness brightness, RadixColor color) {
+  static RadixColor getScaleAColors(Brightness brightness, RadixColor color) {
     final radixColorsDynamic = RadixColorsDynamic(brightness);
     final radixScaleAColors = {
       //grey colors: white foreground text
@@ -1720,11 +1736,11 @@ class RadixTheme {
       "yellow": radixColorsDynamic.yellowA,
       "amber": radixColorsDynamic.amberA,
     };
-    return radixScaleAColors[getColorName(color.name)]!;
+    return radixScaleAColors[getRadixColorName(color.name)]!;
   }
 
   /// returns radix color swatch with default step and name as required
-  static RadixColor _radixColorSwatch(
+  static RadixColor getRadixColorWithCustomName(
     String name,
     RadixColor color,
     int initStep,
@@ -1750,7 +1766,7 @@ class RadixTheme {
   ///remove characters Caps 'A' | 'Dark' | 'DarkA' from string and return plain color name
   ///
   ///ex: 'blueA' => 'blue', 'blueDark' => 'blue', 'blueDarkA' => 'blue'
-  static String getColorName(String? name) => name!.replaceAll(RegExp(r'[A]|Dark'), "");
+  static String getRadixColorName(String? name) => name!.replaceAll(RegExp(r'[A]|Dark'), "");
 }
 
 typedef HighlightColors = ({
@@ -1762,14 +1778,14 @@ typedef HighlightColors = ({
   RadixColor successText,
   RadixColor warning,
   RadixColor warningText,
-  RadixColor highLighterCrimson,
-  RadixColor highLighterCrimsonText,
-  RadixColor highLighterIndigo,
-  RadixColor highLighterIndigoText,
-  RadixColor highLighterGreen,
-  RadixColor highLighterGreenText,
-  RadixColor highLighterOrange,
-  RadixColor highLighterOrangeText,
+  RadixColor hlError,
+  RadixColor hlErrorText,
+  RadixColor hlInfo,
+  RadixColor hlInfoText,
+  RadixColor hlSuccess,
+  RadixColor hlSuccessText,
+  RadixColor hlWarning,
+  RadixColor hlWarningText,
 });
 
 typedef WhiteAndBlackColors = ({

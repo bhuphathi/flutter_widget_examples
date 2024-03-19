@@ -1,104 +1,108 @@
-import 'package:flutter_widget_examples/core/themes/radix_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_examples/core/themes/radix_theme.dart';
 
-// InputDecoration inputDecoration({
-//   required RadixTheme theme,
-//   required String labeltext,
-//   required String hintText,
-// }) {
-//   return InputDecoration(
-//     labelText: labeltext,
-//     isDense: true,
-//     border: const OutlineInputBorder(),
-//     floatingLabelStyle: TextStyle(color: theme.accent.step11),
-//     focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.accent, width: 2)),
-//     errorBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.error)),
-//     errorStyle: TextStyle(color: theme.error),
-//     focusColor: theme.highLighterGreen,
-//     hintText: hintText,
-//   );
-// }
-
-// InputDecorationTheme inputDecorationTheme(RadixTheme theme) {
-//   return InputDecorationTheme(
-//     contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-//     border: OutlineInputBorder(borderSide: BorderSide(color: theme.error)),
-//     floatingLabelStyle: TextStyle(color: theme.accent.step11),
-//     focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.accent, width: 2)),
-//     errorBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.error)),
-//     errorStyle: TextStyle(color: theme.error),
-//     focusColor: theme.highLighterGreen,
-//   );
-// }
-
-InputDecoration inputDecoration({
-  required RadixTheme theme,
-  required String labeltext,
-  required String hintText,
-  MainColors accent = MainColors.primary,
-  MainColors error = MainColors.error,
-  MainColors focus = MainColors.highLighterGreen,
-}) {
-  return InputDecoration(
-    labelText: labeltext,
-    isDense: true,
-    border: const OutlineInputBorder(),
-    floatingLabelStyle: TextStyle(color: theme.get(themeProperty: accent)?.step11),
-    focusedBorder:
-        OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: accent)!, width: 2)),
-    errorBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: error)!)),
-    errorStyle: TextStyle(color: theme.get(themeProperty: error)),
-    focusColor: theme.get(themeProperty: focus),
-    hintText: hintText,
-  );
+class MyInputDecoration extends InputDecoration {
+  final RadixTheme theme;
+  final bool outlineBorder;
+  final MainColors accentColor;
+  final MainColors subtleColor;
+  final MainColors errorColor;
+  MyInputDecoration({
+    required this.theme,
+    super.errorText,
+    super.errorMaxLines = 2,
+    super.hintText,
+    super.labelText,
+    super.isDense = true,
+    this.outlineBorder = true,
+    this.accentColor = MainColors.primary,
+    this.subtleColor = MainColors.secondary,
+    this.errorColor = MainColors.error,
+  }) : super(
+          border: outlineBorder ? const OutlineInputBorder() : null,
+          floatingLabelStyle: TextStyle(color: theme.get(themeProperty: subtleColor)?.step11),
+          focusedBorder: outlineBorder
+              ? OutlineInputBorder(
+                  borderSide: BorderSide(color: theme.get(themeProperty: accentColor)!, width: 2))
+              : UnderlineInputBorder(
+                  borderSide: BorderSide(color: theme.get(themeProperty: accentColor)!, width: 2)),
+          errorBorder: outlineBorder
+              ? OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: errorColor)!))
+              : UnderlineInputBorder(
+                  borderSide: BorderSide(color: theme.get(themeProperty: accentColor)!, width: 2)),
+          errorStyle: TextStyle(color: theme.get(themeProperty: errorColor)),
+        );
 }
 
-InputDecorationTheme inputDecorationTheme(
-  RadixTheme theme, {
-  MainColors accent = MainColors.tertiary,
-  MainColors error = MainColors.error,
-  MainColors focus = MainColors.highLighterGreen,
-}) {
-  return InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-    border: const OutlineInputBorder(),
-    floatingLabelStyle: TextStyle(color: theme.get(themeProperty: accent)?.step11),
-    focusedBorder:
-        OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: accent)!, width: 2)),
-    errorBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: error)!)),
-    errorStyle: TextStyle(color: theme.get(themeProperty: error)),
-    focusColor: theme.get(themeProperty: focus),
-  );
+class MyInputDecorationTheme extends InputDecorationTheme {
+  final RadixTheme theme;
+  final MainColors borderColor;
+  final MainColors errorColor;
+  final MainColors focusClr;
+  MyInputDecorationTheme({
+    required this.theme,
+    this.borderColor = MainColors.primary,
+    this.errorColor = MainColors.error,
+    this.focusClr = MainColors.hlSuccess,
+  }) : super(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+          border: const OutlineInputBorder(),
+          floatingLabelStyle: TextStyle(color: theme.get(themeProperty: borderColor)?.step11),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: theme.get(themeProperty: borderColor)!, width: 2)),
+          errorBorder:
+              OutlineInputBorder(borderSide: BorderSide(color: theme.get(themeProperty: errorColor)!)),
+          errorStyle: TextStyle(color: theme.get(themeProperty: errorColor)),
+          focusColor: theme.get(themeProperty: focusClr),
+        );
 }
 
-MenuStyle dropDownMenuStyle(RadixTheme theme, MainColors themeProperty) {
-  return MenuStyle(
-    padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
-    alignment: AlignmentDirectional.centerStart,
-    backgroundColor: MaterialStatePropertyAll(theme.get(themeProperty: themeProperty)?.step1),
-  );
+class MydropDownMenuStyle extends MenuStyle {
+  final RadixTheme theme;
+  final MainColors themeProperty;
+  MydropDownMenuStyle({
+    required this.theme,
+    this.themeProperty = MainColors.secondary,
+    super.alignment = AlignmentDirectional.centerStart,
+    super.padding = const MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
+  }) : super(
+          backgroundColor: MaterialStatePropertyAll(theme.get(themeProperty: themeProperty)?.step2),
+        );
 }
 
-///set any theme color with themePropertyName
-ButtonStyle elevatedBtnStyle(RadixTheme theme, MainColors themeProperty) {
-  return ButtonStyle(
-    //theme.primary
-    backgroundColor:
-        MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)),
-    //theme.primaryText
-    foregroundColor: MaterialStateProperty.resolveWith(
-        (states) => theme.get(themeProperty: themeProperty, suffix: ColorSuffix.text)),
-    //theme.primary.step7
-    overlayColor:
-        MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)?.step7),
-  );
+class MyElevatedBtnStyle extends ButtonStyle {
+  final RadixTheme theme;
+  final MainColors themeProperty;
+
+  ///set any theme color with themePropertyName
+  MyElevatedBtnStyle(
+    this.theme,
+    this.themeProperty,
+  ) : super(
+          //theme.primary
+          backgroundColor:
+              MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)),
+          //theme.primaryText
+          foregroundColor: MaterialStateProperty.resolveWith(
+              (states) => theme.get(themeProperty: themeProperty, suffix: ColorSuffix.text)),
+          //theme.primary.step7
+          overlayColor: MaterialStateProperty.resolveWith(
+              (states) => theme.get(themeProperty: themeProperty, suffix: ColorSuffix.a)?.step6),
+        );
 }
 
-ButtonStyle textButtonStyle(RadixTheme theme, MainColors themeProperty) {
-  return ButtonStyle(
-    foregroundColor:
-        MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)),
-    overlayColor:
-        MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)?.step3),
-  );
+class MyTextButtonStyle extends ButtonStyle {
+  final RadixTheme theme;
+  final MainColors themeProperty;
+  MyTextButtonStyle(
+    this.theme,
+    this.themeProperty,
+  ) : super(
+          foregroundColor: MaterialStateProperty.resolveWith(
+              (states) => theme.get(themeProperty: themeProperty)?.step11),
+          overlayColor: MaterialStateProperty.resolveWith(
+              (states) => theme.get(themeProperty: themeProperty)?.step5),
+          backgroundColor: MaterialStateProperty.resolveWith(
+              (states) => theme.get(themeProperty: themeProperty)?.step3),
+        );
 }

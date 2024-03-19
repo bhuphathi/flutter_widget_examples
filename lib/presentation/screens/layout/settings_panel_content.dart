@@ -123,25 +123,25 @@ class _SettingsPanelContentState extends ConsumerState<SettingsPanelContent> {
                           child: Text("OU"),
                         )),
                     Card(
-                        color: theme.highLighterIndigo,
+                        color: theme.hlInfo,
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                           child: Text("HI"),
                         )),
                     Card(
-                        color: theme.highLighterGreen,
+                        color: theme.hlSuccess,
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                           child: Text("HS"),
                         )),
                     Card(
-                        color: theme.highLighterOrange,
+                        color: theme.hlWarning,
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                           child: Text("HW"),
                         )),
                     Card(
-                        color: theme.highLighterCrimson,
+                        color: theme.hlError,
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                           child: Text("HE"),

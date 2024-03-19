@@ -36,20 +36,20 @@ errorDialog(WidgetRef ref) {
       onBackground = theme.success.step11;
       break;
     case AlertTheme.hlError:
-      background = theme.highLighterCrimson.step2;
-      onBackground = theme.highLighterCrimson.step11;
+      background = theme.hlError.step2;
+      onBackground = theme.hlError.step11;
       break;
     case AlertTheme.hlinfo:
-      background = theme.highLighterIndigo.step2;
-      onBackground = theme.highLighterIndigo.step11;
+      background = theme.hlInfo.step2;
+      onBackground = theme.hlInfo.step11;
       break;
     case AlertTheme.hlWarning:
-      background = theme.highLighterOrange.step2;
-      onBackground = theme.highLighterOrange.step11;
+      background = theme.hlWarning.step2;
+      onBackground = theme.hlWarning.step11;
       break;
     case AlertTheme.hlSuccess:
-      background = theme.highLighterGreen.step2;
-      onBackground = theme.highLighterGreen.step11;
+      background = theme.hlSuccess.step2;
+      onBackground = theme.hlSuccess.step11;
       break;
     default:
       background = theme.background;

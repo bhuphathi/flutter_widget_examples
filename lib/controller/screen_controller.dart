@@ -112,7 +112,7 @@ class ScreenController {
       case Screens.lifeCycleDemo:
         return const Lifecycle();
       case Screens.radixTestScreenDemo:
-        return const RadixTestScreen();
+        return const RadixThemeScreen();
       case Screens.readWriteDemo:
         // assert(_args?[0] != null, "CounterStorage() class need as args[0] for ReadWriteDemo screen");
         return ReadWriteDemo(storage: CounterStorage());
