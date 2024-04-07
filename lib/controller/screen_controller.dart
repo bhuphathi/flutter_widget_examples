@@ -1,3 +1,4 @@
+import 'package:flutter_widget_examples/presentation/screens/drag_demo.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/merged_grid_view.dart';
@@ -62,6 +63,7 @@ enum Screens {
   mergedGridView,
   showCustomMenuOnTappedWidget,
   positionOfWidget,
+  draggable,
 }
 
 /// Home() screen is default
@@ -166,6 +168,8 @@ class ScreenController {
         return ShowCustomMenuOnTappedWidget();
       case Screens.positionOfWidget:
         return const PositionOfObject();
+      case Screens.draggable:
+        return DragDemo();
       default:
         return const Home();
     }
