@@ -1,3 +1,4 @@
+import 'package:flutter_widget_examples/presentation/screens/apple_cupertino_dropdown.dart';
 import 'package:flutter_widget_examples/presentation/screens/drag_demo.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_data_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/excel_paginated_data_table.dart';
@@ -64,6 +65,7 @@ enum Screens {
   showCustomMenuOnTappedWidget,
   positionOfWidget,
   draggable,
+  appleScrollDropDown,
 }
 
 /// Home() screen is default
@@ -170,6 +172,8 @@ class ScreenController {
         return const PositionOfObject();
       case Screens.draggable:
         return DragDemo();
+      case Screens.appleScrollDropDown:
+        return AppleScrollDropdown();
       default:
         return const Home();
     }
