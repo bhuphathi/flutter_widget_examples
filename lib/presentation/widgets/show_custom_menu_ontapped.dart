@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_examples/core/extensions/context_extension.dart';
-import 'package:flutter_widget_examples/core/utils/debug_print.dart';
 import 'package:flutter_widget_examples/core/utils/show_custom_menu.dart';
 
 class ShowCustomMenuOnTappedWidget extends StatelessWidget {
+  const ShowCustomMenuOnTappedWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -47,7 +47,7 @@ class ShowCustomMenuOnTappedWidget extends StatelessWidget {
           width: 200,
           height: 50,
           color: Colors.blue,
-          child: Center(
+          child: const Center(
             child: Text(
               'Tap here to show menu',
               style: TextStyle(color: Colors.white),

@@ -64,9 +64,9 @@ class MydropDownMenuStyle extends MenuStyle {
     required this.theme,
     this.themeProperty = MainColors.secondary,
     super.alignment = AlignmentDirectional.centerStart,
-    super.padding = const MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
+    super.padding = const WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
   }) : super(
-          backgroundColor: MaterialStatePropertyAll(theme.get(themeProperty: themeProperty)?.step2),
+          backgroundColor: WidgetStatePropertyAll(theme.get(themeProperty: themeProperty)?.step2),
         );
 }
 
@@ -81,12 +81,12 @@ class MyElevatedBtnStyle extends ButtonStyle {
   ) : super(
           //theme.primary
           backgroundColor:
-              MaterialStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)),
+              WidgetStateProperty.resolveWith((states) => theme.get(themeProperty: themeProperty)),
           //theme.primaryText
-          foregroundColor: MaterialStateProperty.resolveWith(
+          foregroundColor: WidgetStateProperty.resolveWith(
               (states) => theme.get(themeProperty: themeProperty, suffix: ColorSuffix.text)),
           //theme.primary.step7
-          overlayColor: MaterialStateProperty.resolveWith(
+          overlayColor: WidgetStateProperty.resolveWith(
               (states) => theme.get(themeProperty: themeProperty, suffix: ColorSuffix.a)?.step6),
         );
 }
@@ -98,11 +98,11 @@ class MyTextButtonStyle extends ButtonStyle {
     this.theme,
     this.themeProperty,
   ) : super(
-          foregroundColor: MaterialStateProperty.resolveWith(
+          foregroundColor: WidgetStateProperty.resolveWith(
               (states) => theme.get(themeProperty: themeProperty)?.step11),
-          overlayColor: MaterialStateProperty.resolveWith(
+          overlayColor: WidgetStateProperty.resolveWith(
               (states) => theme.get(themeProperty: themeProperty)?.step5),
-          backgroundColor: MaterialStateProperty.resolveWith(
+          backgroundColor: WidgetStateProperty.resolveWith(
               (states) => theme.get(themeProperty: themeProperty)?.step3),
         );
 }

@@ -240,12 +240,13 @@ class _MySpeechAppState extends State<MySpeechApp> {
             if (snapshot.hasData) {
               return _enginesDropDownSection(snapshot.data);
             } else if (snapshot.hasError) {
-              return Text('Error loading engines...');
+              return const Text('Error loading engines...');
             } else
-              return Text('Loading engines...');
+              return const Text('Loading engines...');
           });
-    } else
-      return Container(width: 0, height: 0);
+    } else {
+      return const SizedBox(width: 0, height: 0);
+    }
   }
 
   Widget _futureBuilder() => FutureBuilder<dynamic>(
@@ -254,14 +255,14 @@ class _MySpeechAppState extends State<MySpeechApp> {
         if (snapshot.hasData) {
           return _languageDropDownSection(snapshot.data);
         } else if (snapshot.hasError) {
-          return Text('Error loading languages...');
+          return const Text('Error loading languages...');
         } else
-          return Text('Loading Languages...');
+          return const Text('Loading Languages...');
       });
 
   Widget _inputSection() => Container(
       alignment: Alignment.topCenter,
-      padding: EdgeInsets.only(top: 25.0, left: 25.0, right: 25.0),
+      padding: const EdgeInsets.only(top: 25.0, left: 25.0, right: 25.0),
       child: TextField(
         maxLines: 11,
         minLines: 6,
@@ -272,7 +273,7 @@ class _MySpeechAppState extends State<MySpeechApp> {
 
   Widget _btnSection() {
     return Container(
-      padding: EdgeInsets.only(top: 50.0),
+      padding: const EdgeInsets.only(top: 50.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -285,7 +286,7 @@ class _MySpeechAppState extends State<MySpeechApp> {
   }
 
   Widget _enginesDropDownSection(dynamic engines) => Container(
-        padding: EdgeInsets.only(top: 50.0),
+        padding: const EdgeInsets.only(top: 50.0),
         child: DropdownButton(
           value: engine,
           items: getEnginesDropDownMenuItems(engines),
@@ -294,7 +295,7 @@ class _MySpeechAppState extends State<MySpeechApp> {
       );
 
   Widget _languageDropDownSection(dynamic languages) => Container(
-      padding: EdgeInsets.only(top: 10.0),
+      padding: const EdgeInsets.only(top: 10.0),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         DropdownButton(
           value: language,
@@ -325,7 +326,7 @@ class _MySpeechAppState extends State<MySpeechApp> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ElevatedButton(
-          child: Text('Get max speech input length'),
+          child: const Text('Get max speech input length'),
           onPressed: () async {
             _inputLength = await flutterTts.getMaxSpeechInputLength;
             setState(() {});

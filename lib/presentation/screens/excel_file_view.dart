@@ -45,15 +45,16 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
             allowMultiple: false,
           )
         : throw "Select a file to display data...";
-    var tables;
+    Map<String, Sheet> tables;
     dPrint(filename: _filename, msg: pickedFile, tag: "picked file");
     if (pickedFile != null) {
       var bytes = File(pickedFile.files.first.path!).readAsBytesSync();
 
       var excel = Excel.decodeBytes(bytes);
       tables = excel.tables;
+      return await getRowsData(tables);
     }
-    return await getRowsData(tables);
+    return [];
   }
 
   Future<List<List<Data?>>> getRowsData(Map<String, Sheet> tables) async {
@@ -97,7 +98,7 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
                   height: getSizeOfWidget(rowKey)?.height,
                   child: ElevatedButton(
                     onPressed: () => setState(() => getFile = !getFile),
-                    style: const ButtonStyle(shape: MaterialStatePropertyAll(CircleBorder())),
+                    style: const ButtonStyle(shape: WidgetStatePropertyAll(CircleBorder())),
                     child: const Icon(Icons.upload),
                   ),
                 ),
@@ -209,5 +210,4 @@ class _ExcelFileDemoState extends ConsumerState<ExcelFileDemo> {
       ),
     );
   }
-
 }

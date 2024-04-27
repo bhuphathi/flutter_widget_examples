@@ -74,7 +74,7 @@ class PositionOfObject extends StatelessWidget {
                 },
                 child: Text(
                   'Click to detect position ${position?.dx}, ${position?.dy}',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
@@ -91,19 +91,19 @@ void showCustomMenuEx(BuildContext context, Offset position) {
   showMenu<String>(
     context: context,
     position: RelativeRect.fromRect(
-      position & Size(0, 0), // Position where the menu will be shown
+      position & const Size(0, 0), // Position where the menu will be shown
       Offset.zero & overlay.size, // The full overlay size
     ),
     items: <PopupMenuEntry<String>>[
-      PopupMenuItem<String>(
+      const PopupMenuItem<String>(
         value: 'option1',
         child: Text('Option 1'),
       ),
-      PopupMenuItem<String>(
+      const PopupMenuItem<String>(
         value: 'option2',
         child: Text('Option 2'),
       ),
-      PopupMenuItem<String>(
+      const PopupMenuItem<String>(
         value: 'option3',
         child: Text('Option 3'),
       ),

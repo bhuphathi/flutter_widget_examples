@@ -91,7 +91,7 @@ errorDialog(WidgetRef ref) {
           ),
           actions: <Widget>[
             TextButton(
-              style: ButtonStyle(foregroundColor: MaterialStatePropertyAll(onBackground)),
+              style: ButtonStyle(foregroundColor: WidgetStatePropertyAll(onBackground)),
               onPressed: () {
                 ref.read(errorProvider.notifier).update((state) => null);
                 Navigator.pop(ctx, 'OK');

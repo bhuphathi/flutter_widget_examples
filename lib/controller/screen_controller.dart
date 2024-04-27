@@ -5,6 +5,7 @@ import 'package:flutter_widget_examples/presentation/screens/excel_paginated_dat
 import 'package:flutter_widget_examples/presentation/screens/merged_grid_view.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview_animated_cards.dart';
+import 'package:flutter_widget_examples/presentation/screens/signals_example.dart';
 import 'package:flutter_widget_examples/presentation/screens/speech.dart';
 import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
 import 'package:flutter_widget_examples/presentation/screens/volume.dart';
@@ -66,6 +67,7 @@ enum Screens {
   positionOfWidget,
   draggable,
   appleScrollDropDown,
+  signalsExamples,
 }
 
 /// Home() screen is default
@@ -167,13 +169,15 @@ class ScreenController {
       case Screens.mergedGridView:
         return const MergedGridView();
       case Screens.showCustomMenuOnTappedWidget:
-        return ShowCustomMenuOnTappedWidget();
+        return const ShowCustomMenuOnTappedWidget();
       case Screens.positionOfWidget:
         return const PositionOfObject();
       case Screens.draggable:
-        return DragDemo();
+        return const DragDemo();
       case Screens.appleScrollDropDown:
-        return AppleScrollDropdown();
+        return const AppleScrollDropdown();
+      case Screens.signalsExamples:
+        return const SignalsExample();
       default:
         return const Home();
     }

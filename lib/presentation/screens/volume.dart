@@ -41,7 +41,7 @@ class _VolumeAppState extends State<VolumeApp> {
             Text('Current volume: $_volumeListenerValue'),
             Row(
               children: [
-                Text('Set Volume:'),
+                const Text('Set Volume:'),
                 Flexible(
                   child: Slider(
                     min: 0,
@@ -68,17 +68,17 @@ class _VolumeAppState extends State<VolumeApp> {
                       _setVolumeValue = _getVolume;
                     });
                   },
-                  child: Text('Get Volume'),
+                  child: const Text('Get Volume'),
                 ),
               ],
             ),
             TextButton(
               onPressed: () => VolumeController().muteVolume(),
-              child: Text('Mute Volume'),
+              child: const Text('Mute Volume'),
             ),
             TextButton(
               onPressed: () => VolumeController().maxVolume(),
-              child: Text('Max Volume'),
+              child: const Text('Max Volume'),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +87,7 @@ class _VolumeAppState extends State<VolumeApp> {
                 TextButton(
                   onPressed: () =>
                       setState(() => VolumeController().showSystemUI = !VolumeController().showSystemUI),
-                  child: Text('Show/Hide UI'),
+                  child: const Text('Show/Hide UI'),
                 )
               ],
             ),

@@ -1,4 +1,3 @@
-import 'package:flutter_widget_examples/controller/role_controller.dart';
 import 'package:flutter_widget_examples/controller/screen_controller.dart';
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
 import 'package:flutter_widget_examples/core/utils/debug_print.dart';

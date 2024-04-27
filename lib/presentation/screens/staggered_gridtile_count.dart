@@ -17,27 +17,27 @@ class StaggeredGridTileCount extends StatelessWidget {
             StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 0.25,
-              child: Container(color: Colors.black38, child: Text("tile")),
+              child: Container(color: Colors.black38, child: const Text("tile")),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 0.25,
-              child: Container(color: Colors.black38, child: Text("tile")),
+              child: Container(color: Colors.black38, child: const Text("tile")),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 0.25,
-              child: Container(color: Colors.black38, child: Text("tile")),
+              child: Container(color: Colors.black38, child: const Text("tile")),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 1,
               mainAxisCellCount: 0.25,
-              child: Container(color: Colors.black38, child: Text("tile")),
+              child: Container(color: Colors.black38, child: const Text("tile")),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 4,
               mainAxisCellCount: 0.25,
-              child: Container(color: Colors.black38, child: Text("tile")),
+              child: Container(color: Colors.black38, child: const Text("tile")),
             ),
           ],
         ),

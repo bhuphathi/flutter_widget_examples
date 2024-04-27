@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: DragDemo(),
     );
   }
 }
 
 class DragDemo extends StatefulWidget {
+  const DragDemo({super.key});
+
   @override
   _DragDemoState createState() => _DragDemoState();
 }
@@ -25,27 +29,16 @@ class _DragDemoState extends State<DragDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drag Demo'),
+        title: const Text('Drag Demo'),
       ),
       body: Center(
         child: Draggable<Color>(
           data: _color,
-          child: Container(
-            width: 100,
-            height: 100,
-            color: _color,
-            child: Center(
-              child: Text(
-                'Drag Me',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
           feedback: Container(
             width: 100,
             height: 100,
             color: _color.withOpacity(0.5),
-            child: Center(
+            child: const Center(
               child: Text(
                 'Dragging...',
                 style: TextStyle(color: Colors.white),
@@ -56,9 +49,20 @@ class _DragDemoState extends State<DragDemo> {
             width: 100,
             height: 100,
             color: Colors.grey,
-            child: Center(
+            child: const Center(
               child: Text(
                 'Dragged',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          child: Container(
+            width: 100,
+            height: 100,
+            color: _color,
+            child: const Center(
+              child: Text(
+                'Drag Me',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -71,7 +75,7 @@ class _DragDemoState extends State<DragDemo> {
             _color = _color == Colors.blue ? Colors.red : Colors.blue;
           });
         },
-        child: Icon(Icons.color_lens),
+        child: const Icon(Icons.color_lens),
       ),
     );
   }

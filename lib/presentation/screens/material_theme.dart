@@ -35,8 +35,8 @@ class MaterialThemeDemo extends ConsumerWidget {
                 mainAxisSpacing: 2),
             children: [
               colorTile(
-                color: (color: Theme.of(context).colorScheme.background, name: "background"),
-                textOrOnColor: (color: Theme.of(context).colorScheme.onBackground, name: "onBackground"),
+                color: (color: Theme.of(context).colorScheme.surface, name: "background"),
+                textOrOnColor: (color: Theme.of(context).colorScheme.onSurface, name: "onBackground"),
               ),
               colorTile(
                 color: (color: Theme.of(context).colorScheme.primary, name: "primary"),
@@ -104,7 +104,7 @@ class MaterialThemeDemo extends ConsumerWidget {
                 name: "onInverseSurface"
               )),
               colorTile(color: (
-                color: Theme.of(context).colorScheme.surfaceVariant,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
                 name: "surfaceVariant"
               ), textOrOnColor: (
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -123,11 +123,11 @@ class MaterialThemeDemo extends ConsumerWidget {
               ),
               colorTile(
                 color: (color: Theme.of(context).colorScheme.scrim, name: "scrim"),
-                textOrOnColor: (color: Theme.of(context).colorScheme.background, name: "background"),
+                textOrOnColor: (color: Theme.of(context).colorScheme.surface, name: "background"),
               ),
               colorTile(
                 color: (color: Theme.of(context).colorScheme.shadow, name: "shadow"),
-                textOrOnColor: (color: Theme.of(context).colorScheme.background, name: "background"),
+                textOrOnColor: (color: Theme.of(context).colorScheme.surface, name: "background"),
               ),
               colorTile(
                 color: (color: Theme.of(context).colorScheme.surfaceTint, name: "surfaceTint"),

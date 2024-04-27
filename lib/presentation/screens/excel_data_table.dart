@@ -170,11 +170,11 @@ class _ExcelDatatableViewState extends ConsumerState<ExcelDatatableView> {
             //topBar(),
             ElevatedButton(
               onPressed: _loading ? null : _pickAndReadFile,
-              child: Text('Pick and Read XLSX File'),
+              child: const Text('Pick and Read XLSX File'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             if (_loading)
-              CircularProgressIndicator()
+              const CircularProgressIndicator()
             else if (_excelData != null)
               Expanded(
                 child: SingleChildScrollView(
@@ -236,7 +236,7 @@ class _ExcelDatatableViewState extends ConsumerState<ExcelDatatableView> {
                 () {},
               ));
         },
-        style: const ButtonStyle(shape: MaterialStatePropertyAll(CircleBorder())),
+        style: const ButtonStyle(shape: WidgetStatePropertyAll(CircleBorder())),
         child: const Icon(Icons.upload),
       ),
     );

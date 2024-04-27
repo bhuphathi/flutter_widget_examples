@@ -41,14 +41,14 @@ class CustomMaterialTheme extends ConsumerWidget {
                 mainAxisSpacing: 2),
             children: [
               ListTile(
-                title: SelectableText("background ${replaceString(theme.colorScheme.background)}",
-                    style: TextStyle(color: theme.colorScheme.onBackground)),
-                tileColor: theme.colorScheme.background,
+                title: SelectableText("background ${replaceString(theme.colorScheme.surface)}",
+                    style: TextStyle(color: theme.colorScheme.onSurface)),
+                tileColor: theme.colorScheme.surface,
               ),
               ListTile(
-                title: SelectableText("onBackground ${replaceString(theme.colorScheme.onBackground)}",
-                    style: TextStyle(color: theme.colorScheme.background)),
-                tileColor: theme.colorScheme.onBackground,
+                title: SelectableText("onBackground ${replaceString(theme.colorScheme.onSurface)}",
+                    style: TextStyle(color: theme.colorScheme.surface)),
+                tileColor: theme.colorScheme.onSurface,
               ),
               ListTile(
                 title: SelectableText("surface ${replaceString(theme.colorScheme.surface)}",
@@ -161,14 +161,14 @@ class CustomMaterialTheme extends ConsumerWidget {
               ),
               ListTile(
                 title: SelectableText(
-                    "surfaceVariant ${replaceString(theme.colorScheme.surfaceVariant)}",
+                    "surfaceVariant ${replaceString(theme.colorScheme.surfaceContainerHighest)}",
                     style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
-                tileColor: theme.colorScheme.surfaceVariant,
+                tileColor: theme.colorScheme.surfaceContainerHighest,
               ),
               ListTile(
                 title: SelectableText(
                     "onSurfaceVariant ${replaceString(theme.colorScheme.onSurfaceVariant)}",
-                    style: TextStyle(color: theme.colorScheme.surfaceVariant)),
+                    style: TextStyle(color: theme.colorScheme.surfaceContainerHighest)),
                 tileColor: theme.colorScheme.onSurfaceVariant,
               ),
               ListTile(

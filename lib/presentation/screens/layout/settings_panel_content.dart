@@ -1,9 +1,6 @@
 import 'package:flutter_widget_examples/controller/theme_controller.dart';
 import 'package:flutter_widget_examples/core/providers/brightness_provider.dart';
 import 'package:flutter_widget_examples/core/providers/theme_notifier.dart';
-import 'package:flutter_widget_examples/core/settings/styles.dart';
-import 'package:flutter_widget_examples/core/themes/radix_theme.dart';
-import 'package:flutter_widget_examples/core/utils/check_platform.dart';
 import 'package:flutter_widget_examples/presentation/widgets/color_swatch.dart';
 import 'package:flutter_widget_examples/controller/role_controller.dart';
 import 'package:flutter/material.dart';
