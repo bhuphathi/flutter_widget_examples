@@ -5,6 +5,9 @@ import 'package:flutter_widget_examples/presentation/screens/excel_paginated_dat
 import 'package:flutter_widget_examples/presentation/screens/merged_grid_view.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview.dart';
 import 'package:flutter_widget_examples/presentation/screens/pageview_animated_cards.dart';
+import 'package:flutter_widget_examples/presentation/screens/permissions_checkbox.dart';
+import 'package:flutter_widget_examples/presentation/screens/permissions_checkbox_2.dart';
+import 'package:flutter_widget_examples/presentation/screens/permissions_checkbox_table.dart';
 import 'package:flutter_widget_examples/presentation/screens/signals_example.dart';
 import 'package:flutter_widget_examples/presentation/screens/speech.dart';
 import 'package:flutter_widget_examples/presentation/screens/tabs.dart';
@@ -68,6 +71,9 @@ enum Screens {
   draggable,
   appleScrollDropDown,
   signalsExamples,
+  permissionsCheckBox,
+  permissionsBorderCheckBox,
+  permissionsTableCheckBox,
 }
 
 /// Home() screen is default
@@ -178,6 +184,12 @@ class ScreenController {
         return const AppleScrollDropdown();
       case Screens.signalsExamples:
         return const SignalsExample();
+      case Screens.permissionsCheckBox:
+        return const PermissionsCheckBoxExample();
+      case Screens.permissionsBorderCheckBox:
+        return const PermissionsBorderCheckBoxExample();
+      case Screens.permissionsTableCheckBox:
+        return const PermissionsTableCheckBoxExample();
       default:
         return const Home();
     }
