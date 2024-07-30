@@ -151,44 +151,50 @@ class CounterStorage {
   }
 
   void directoriesPath() async {
-    //getApplicationDocumentsDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/app_flutter'
+    //Android: '/data/user/0/com.example.fileops/app_flutter'
+    //linux: '/home/user/Documents'
     getApplicationDocumentsDirectory().then((value) {
       dPrint(filename: "wrtiefile", msg: "getApplicationDocumentsDirectory: ${value.toString()}");
     });
 
-    //getApplicationSupportDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/files'
+    //Android: '/data/user/0/com.example.fileops/files'
+    //linux: '/home/user/.local/share/com.example.fileops'
     getApplicationSupportDirectory().then((value) {
       dPrint(filename: "wrtiefile", msg: "getApplicationSupportDirectory: ${value.toString()}");
     });
 
-    //getDownloadsDirectory: Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files/downloads'
+    //Android: '/storage/emulated/0/Android/data/com.example.fileops/files/downloads'
+    //linux: '/home/bhupathi/Downloads'
     getDownloadsDirectory().then((value) {
       dPrint(filename: "wrtiefile", msg: "getDownloadsDirectory: ${value.toString()}");
     });
 
-    //getExternalCacheDirectories: [Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/cache']
-    getExternalCacheDirectories().then((value) {
-      dPrint(filename: "wrtiefile", msg: "getExternalCacheDirectories: ${value.toString()}");
-    });
-
-    // getExternalStorageDirectory: Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files'
-    getExternalStorageDirectory().then((value) {
-      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectory: ${value.toString()}");
-    });
-
-    //getExternalStorageDirectories: [Directory: '/storage/emulated/0/Android/data/in.mbfgroup.blweighment/files']
-    getExternalStorageDirectories().then((value) {
-      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectories: ${value.toString()}");
-    });
-
-    //getTemporaryDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/cache'
+    //Android: '/data/user/0/com.example.fileops/cache'
+    //linux: '/tmp'
     getTemporaryDirectory().then((value) {
       dPrint(filename: "wrtiefile", msg: "getTemporaryDirectory: ${value.toString()}");
     });
 
-    //getApplicationCacheDirectory: Directory: '/data/user/0/in.mbfgroup.blweighment/cache'
+    //Android: '/data/user/0/com.example.fileops/cache'
+    //linux: '/home/user/.cache/com.example.fileops'
     getApplicationCacheDirectory().then((value) {
       dPrint(filename: "wrtiefile", msg: "getApplicationCacheDirectory: ${value.toString()}");
+    });
+
+    // **** below commands does not work in linux ****
+    //Android: '/storage/emulated/0/Android/data/com.example.fileops/cache']
+    getExternalCacheDirectories().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalCacheDirectories: ${value.toString()}");
+    });
+
+    //Android: '/storage/emulated/0/Android/data/com.example.fileops/files'
+    getExternalStorageDirectory().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectory: ${value.toString()}");
+    });
+
+    //Android: '/storage/emulated/0/Android/data/com.example.fileops/files']
+    getExternalStorageDirectories().then((value) {
+      dPrint(filename: "wrtiefile", msg: "getExternalStorageDirectories: ${value.toString()}");
     });
 
 //   //getLibraryPath is not supported on Android
@@ -469,7 +475,6 @@ class _ReadWriteDemoState extends State<ReadWriteDemo> {
                       .writeAsString("test data...")
                       .then((value) => dPrint(
                           filename: _filename, msg: "/storage/emulated/0/mbf/testfile.txt: $value"));
-                          
                   Directory('/storage/emulated/0/Documents/mbf').create().then((value) {
                     dPrint(
                         filename: _filename,
